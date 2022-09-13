@@ -4,7 +4,6 @@ This is the repository for the group project of **BootstrapFTW** for eCommerce F
 It includes:
 
 - All files (Project File, Images)
-- Link to the [Report Page for Meetings](#meeting-report-page)
 - Documentation
 
 ## [Project Instructions](Project_Instructions.pdf)
