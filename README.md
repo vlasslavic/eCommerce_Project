@@ -6,7 +6,7 @@ It includes:
 - All files (Project File, Images)
 - Documentation
 
-## [Project Instructions](Project_Instructions.pdf)
+## [Project Instructions](Project_2022A_420-411-VA_eCommerce.pdf)
 This file contains the guidelines and requirements for every deliverable, presentation and final product pertaining to this project.
 
 ## [Deliverables](/Deliverables)
