@@ -16,7 +16,7 @@ This folder contains the htdoc includinc all project folders, files and images t
 
 ## Copyright and License
 
-Copyright 2013-2022 Start Bootstrap LLC. Code released under the [MIT](https://github.com/StartBootstrap/startbootstrap-stylish-portfolio/blob/master/LICENSE) license.
+Copyright 2022. Code released under the [MIT](https://github.com/vlasslavic/eCommerce_Project/blob/main/LICENSE) license.
 
 
 ## Team Members
