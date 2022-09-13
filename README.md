@@ -1,4 +1,4 @@
-### eCommerce Project
+# eCommerce Project
 
 This is the repository for the group project of **BootstrapFTW** for eCommerce F22 at Vanier College
 It includes:
