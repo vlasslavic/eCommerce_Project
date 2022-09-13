@@ -12,5 +12,13 @@ This file contains the guidelines and requirements for every deliverable, presen
 ## [Deliverables](/Deliverables)
 This folder contains the files and folders that are required every couple of weeks from our teacher.
 
+## [Website](/Website)
+This folder contains the htdoc includinc all project folders, files and images that are required for the correct running of this project.
+
+## Copyright and License
+
+Copyright 2013-2022 Start Bootstrap LLC. Code released under the [MIT](https://github.com/StartBootstrap/startbootstrap-stylish-portfolio/blob/master/LICENSE) license.
+
+
 ## Team Members
 - [Veaceslav Vlas](https://github.com/vlasslavic)
