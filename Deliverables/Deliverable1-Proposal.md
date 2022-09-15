@@ -3,7 +3,7 @@
 We/I will build a Canadian Tire like Web application where registered customers can add their cars and schedule service appointments, track them and have history of previous records online; as well as buy relative products/accesories for their car.
 ## Our project will support the following stories:
 
-|   As a   | I can                                                                                          |
+| **As a** | **I can**                                                                                      |
 |:--------:|:-----------------------------------------------------------------------------------------------|
 |  Seller  | Register, login, and logout (these are not new features - they are given in class).            |
 |  Seller  | Add and modify products for sale and track sales of these products (3 features).               |
