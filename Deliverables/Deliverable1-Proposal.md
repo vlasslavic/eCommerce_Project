@@ -1,5 +1,5 @@
-# myRide
--------
+# myRide 
+
 
 We/I will build a Canadian Tire like Web application where registered customers can add their cars and schedule service appointments, track them and have history of previous records online; as well as buy relative products/accesories for their car.
 ## Our project will support the following stories:
@@ -27,5 +27,6 @@ We/I will build a Canadian Tire like Web application where registered customers 
 |  User    | Check the status of the current service appointment (1 feature).                               |
 |  User    | Check past service records. (1 feature).                                                       |
 
-## Team Members
+
+## BootstrapFTW Team Members
 - [Veaceslav Vlas](https://github.com/vlasslavic)
