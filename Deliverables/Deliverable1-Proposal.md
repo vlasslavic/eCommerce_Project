@@ -26,3 +26,6 @@ We/I will build a Canadian Tire like Web application where registered customers 
 |  User    | Schedule/delete/modify my service appointment/s (3 features).                                  |
 |  User    | Check the status of the current service appointment (1 feature).                               |
 |  User    | Check past service records. (1 feature).                                                       |
+
+## Team Members
+- [Veaceslav Vlas](https://github.com/vlasslavic)
