@@ -21,3 +21,4 @@ Copyright 2022. Code released under the [MIT](https://github.com/vlasslavic/eCom
 
 ## Team Members
 - [Veaceslav Vlas](https://github.com/vlasslavic)
+- [Anthony Mastronardi](https://github.com/vlasslavic)

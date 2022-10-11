@@ -30,3 +30,4 @@ We/I will build a Canadian Tire like Web application where registered customers 
 
 ## BootstrapFTW Team Members
 - [Veaceslav Vlas](https://github.com/vlasslavic)
+- [Anthony Mastronardi](https://github.com/vlasslavic)
