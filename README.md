@@ -12,7 +12,7 @@ This file contains the guidelines and requirements for every deliverable, presen
 This folder contains the files and folders that are required every couple of weeks from our teacher.
 
 ## [Website](/Website)
-This folder contains the htdoc includinc all project folders, files and images that are required for the correct running of this project.
+This folder contains the htdoc including all project folders, files and images that are required for the correct running of this project.
 
 ## Copyright and License
 
