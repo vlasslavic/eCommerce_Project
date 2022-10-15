@@ -2,6 +2,12 @@
 
 
 We/I will build a Canadian Tire like Web application where registered customers can add their cars and schedule service appointments, track them and have history of previous records online; as well as buy relative products/accessories for their car.
+
+## BootstrapFTW Team Members
+- [Veaceslav Vlas](https://github.com/vlasslavic)
+- [Anthony Mastronardi](https://github.com/antho-mastro)
+
+
 ## Our project will support the following stories:
 
 | **As a** | **I can**                                                                                      |
@@ -22,7 +28,6 @@ We/I will build a Canadian Tire like Web application where registered customers 
 |  User    | Add/delete/modify quantities for products to my shopping cart (3 features).                    |
 |  User    | Checkout my order (1 feature).                                                                 |
 
+## Timeline:
+We estimate that wewill spend a total of 100 hours building this product, i.e., 50 hours per team member.
 
-## BootstrapFTW Team Members
-- [Veaceslav Vlas](https://github.com/vlasslavic)
-- [Anthony Mastronardi](https://github.com/antho-mastro)
