@@ -11,6 +11,7 @@ We/I will build a Canadian Tire like Web application where registered customers 
 |  Seller  | Create and modify my store profile (2 features).                                               |
 |  Seller  | View product purchases and mark them as shipped (2 features).                                  |
 |  Seller  | View client appointments for service/delete/modify and ask to confirm (4 features).            |
+|  User    | Register, login, and logout (these are not new features - they are given in class).            |
 |  User    | Add/delete/modify a car to/from my garage (Year/Make/Model/Engine/VIN) (3 features).           |
 |  User    | Schedule/delete/modify my service appointment/s (3 features).                                  |
 |  User    | Check the status of the current service appointment (1 feature).                               |
