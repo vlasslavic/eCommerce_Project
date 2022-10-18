@@ -29,5 +29,5 @@ We will build a Canadian Tire like Web application where registered customers ca
 |  User    | Checkout my order (1 feature).                                                                 |
 
 ## Timeline:
-We estimate that wewill spend a total of 100 hours building this product, i.e., 50 hours per team member.
+We estimate that we will spend a total of 100 hours building this product, i.e., 50 hours per team member.
 
