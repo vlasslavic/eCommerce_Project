@@ -11,9 +11,6 @@ This file contains the guidelines and requirements for every deliverable, presen
 ## [Deliverables](/Deliverables)
 This folder contains the files and folders that are required every couple of weeks from our teacher.
 
-## [Website](/htdocs)
-This folder contains the htdoc including all project folders, files and images that are required for the correct running of this project.
-
 ## Copyright and License
 
 Copyright 2022. Code released under the [MIT](https://github.com/vlasslavic/eCommerce_Project/blob/main/LICENSE) license.
