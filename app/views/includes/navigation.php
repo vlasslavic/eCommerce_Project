@@ -1,4 +1,4 @@
-<header class="  fixed-top bg-dark ">
+<header class="fixed-top bg-dark">
       <div class="d-flex bg-dark flex-wrap text-white align-items-center mx-5 justify-content-center justify-content-md-between py-3 pt-2 ">
         <a href="/" class="d-flex align-items-center fs-1  mb-2 mb-lg-0 ms-3 text-white text-decoration-none ">
         <img alt=" profile picture" style="height:1.5em;" crossorigin="anonymous" raggable="false" src="<?php echo''.URLROOT.''?>public/img/logo.png">
@@ -31,8 +31,8 @@
 
         <div class="d-flex flex-wrap align-items-center my-1 justify-content-center justify-content-lg-start">
         <?php if(!isLoggedIn()){echo '
-            <a type="button" class="btn btn-outline-dark me-2 text-decoration-none">Login</a>
-            <a type="button" class="btn btn-warning text-decoration-none">Sign-up</a>
+            <a type="button" href="'.URLROOT.'User/index'.'" class="btn btn-outline-dark me-2 text-decoration-none">Sign In</a>
+            <a type="button" href="'.URLROOT.'User/register'.'" class="btn btn-warning text-decoration-none">Sign Up</a>
         ';}?>
         <?php if(isLoggedIn()){echo '
             <ul class="nav nav-pills d-flex align-items-center">
@@ -55,7 +55,6 @@
                 
               </ul>
             </li>
-            
             
             <li>
               <i class="btn bi bi-cart-fill" style="font-size: 1.5rem;"></i>
