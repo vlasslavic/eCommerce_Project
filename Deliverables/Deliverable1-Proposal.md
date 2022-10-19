@@ -15,7 +15,7 @@ We will build a Canadian Tire like Web application where registered customers ca
 |  Seller  | Register, login, and logout (these are not new features - they are given in class).            |
 |  Seller  | Add and modify and delete products for sale (3 features).                                      |
 |  Seller  | Create and modify my store profile (2 features).                                               |
-|  Seller  | View product purchases and mark them as shipped (2 features).                                  |
+|  Seller  | View product purchases, cancel an order or mark an order as shipped (2 features).                                  |
 |  Seller  | View client appointments for service/delete/modify and ask to confirm (4 features).            |
 |  Seller  | Change appointmen status (1 features).                         |
 |  User    | Register, login, and logout (these are not new features - they are given in class).            |
@@ -29,5 +29,5 @@ We will build a Canadian Tire like Web application where registered customers ca
 |  User    | Checkout my order (1 feature).                                                                 |
 
 ## Timeline:
-We estimate that wewill spend a total of 100 hours building this product, i.e., 50 hours per team member.
+We estimate that we will spend a total of 100 hours building this product, i.e., 50 hours per team member.
 
