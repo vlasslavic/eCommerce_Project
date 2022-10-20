@@ -1,9 +1,15 @@
 <?php
 
-    
-
     function isLoggedIn(){
       if(isset($_SESSION['email'])){
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    function isCustomerLoggedIn(){
+      if(isset($_SESSION['user_id'])){
         return true;
       } else {
         return false;

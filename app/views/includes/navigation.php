@@ -30,12 +30,13 @@
             </form>
 
         <div class="d-flex flex-wrap align-items-center my-1 justify-content-center justify-content-lg-start">
-        <?php if(!isLoggedIn()){echo '
+        <?php if(!isCustomerLoggedIn() And !isSellerLoggedIn()){echo '
             <a type="button" href="'.URLROOT.'User/index'.'" class="btn btn-outline-dark me-2 text-decoration-none">Sign In</a>
             <a type="button" href="'.URLROOT.'User/register'.'" class="btn btn-warning text-decoration-none">Sign Up</a>
         ';}?>
-        <?php if(isLoggedIn()){echo '
-            <ul class="nav nav-pills d-flex align-items-center">
+       <ul class="nav nav-pills d-flex align-items-center">
+       <?php if(isSellerLoggedIn()){echo '
+           
             <li class="nav-item">
               <a class="nav-link text-decoration-none text-dark shadow-sm fs-6 fw-bold" aria-current="page" href="#">My Store</a>
             </li>
@@ -56,22 +57,23 @@
               </ul>
             </li>
             
-            <li>
+            
+        ';}?>
+        <?php if(isLoggedIn()){ echo'
+        <li>
               <i class="btn bi bi-cart-fill" style="font-size: 1.5rem;"></i>
             </li>
             <li class="nav-item dropdown">
-              <img alt="Image Placeholder" src="https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" class="rounded-circle shadow-4 nav-link dropdown-toggle " data-bs-toggle="dropdown"  role="button" aria-expanded="false""
+              <img alt="Image Placeholder" src="'.URLROOT.'public/img/account.jpg" class="rounded-circle shadow-4 nav-link dropdown-toggle " data-bs-toggle="dropdown"  role="button" aria-expanded="false""
                 style="width: 5em;" alt="Avatar" />
               <ul class="dropdown-menu ">
                 <li><a class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-person-circle p-2"></i>Profile</a></li>
                 <li><a class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-gear-fill p-2"></i>Settings</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-door-open-fill p-2"></i>Logout</a></li>
+                <li><a href="Main/logout"class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-door-open-fill p-2"></i>Logout</a></li>
               </ul>
-            </li>
+            </li>';}?>
           </ul>
-        ';}?>
-
             <!-- <a type="button" class="btn btn-light">
                     <i class="bi bi-cart" style="font-size: 1.5rem;"></i>
             </a>     -->

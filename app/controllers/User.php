@@ -8,25 +8,45 @@ class User extends \app\core\Controller{
 		if(isset($_POST['action'])){
 			//select the user record as per the request
 			$user = new \app\models\User();
-			$user = $user->get($_POST['username']);
-			$profile = new \app\models\Profile();
-			$profile = $profile->get($user->user_id);
-			// $posts == new \app\models\Post();
-			// $posts = $profile->get($profile_id->profile_id);
-			//verify the password match
-			if(password_verify($_POST['password'], $user->password_hash)){
-				//correct password provided
-				$_SESSION['username'] = $user->username;
-				$_SESSION['user_id'] = $user->user_id;
-				$_SESSION['profile_id'] = $profile->profile_id;
-				$_SESSION['profile'] = $profile;
-				// $_SESSION['posts'] = $posts;
-				
-				header('location:'.URLROOT.'Main');
+			$user = $user->getUser($_POST['email']);
+
+			//check user type
+			if(isset($user->user_id)){
+				if(password_verify($_POST['password'], $user->password_hash)){
+					//correct password provided
+					$_SESSION['email'] = $user->email;
+					$_SESSION['user_id'] = $user->user_id;
+					$_SESSION['profile_id'] = $profile->profile_id;
+					$_SESSION['profile'] = $profile;
+					// $_SESSION['posts'] = $posts;
+					
+					header('location:'.URLROOT.'Main');
+				}else{
+					//incorret password provided
+					header('location:'.URLROOT.'User/index?error=Incorrect username/password combination!');
+				}
 			}else{
-				//incorret password provided
-				header('location:'.URLROOT.'User/index?error=Incorrect username/password combination!');
+				$user = new \app\models\User();
+				$user = $user->getSeller($_POST['email']);
+				if(isset($user->seller_id)){
+					if(password_verify($_POST['password'], $user->password_hash)){
+						//correct password provided
+						$_SESSION['email'] = $user->email;
+						$_SESSION['seller_id'] = $user->seller_id;
+						$_SESSION['profile_id'] = $profile->profile_id;
+
+						// $_SESSION['posts'] = $posts;
+						
+						header('location:'.URLROOT.'Main');
+					}else{
+						//incorret password provided
+						header('location:'.URLROOT.'User/index?error=Incorrect username/password combination!');
+					}
+				}
 			}
+
+			//verify the password match
+		
 		}else{
 			$this->view('User/index');
 		}
@@ -72,6 +92,12 @@ class User extends \app\core\Controller{
 	//process of requesting the username and password wanted by the user
 	public function register(){
 		//when we submit the form
+			//show the registration form
+			$this->view('User/register');
+	}
+
+	public function registerSeller(){
+		//when we submit the form
 		if(isset($_POST['action'])){
 			//verify that the password and password_confirmation match
 			if($_POST['password'] == $_POST['password_confirmation']){
@@ -80,32 +106,59 @@ class User extends \app\core\Controller{
 
 				$user = new \app\models\User();//TODO
 
-				if($user->get($_POST['username'])){
+				if($user->getUser($_POST['email']) Or $user->getSeller($_POST['email'])){
 					//redirect with an error message
-					header('location:/User/register?error=The username "'.$_POST['username'].'" already exists. Choose another.');
+					header('location:/User/registerSeller?error=The username "'.$_POST['email'].'" already exists. Choose another.');
 				}else{
-					$user->username = $_POST['username'];
+					$user->email = $_POST['email'];
 					$user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-					$user->insert();//maybe this is where we will have some error checking
+					$user->insertSeller();//maybe this is where we will have some error checking
 
-					header('location:'.URLROOT.'User/index?message=Success and Welcome, now you can log in.');
+					header('location:'.URLROOT.'User/index?message=Success and Welcome, now you can log into your Seller account.');
 				}
 			}
 		}else{
 			//show the registration form
-			$this->view('User/register');
+			$this->view('User/registerSeller');
+		}
+	}
+
+	public function registerCustomer(){
+		//when we submit the form
+		if(isset($_POST['action'])){
+			//verify that the password and password_confirmation match
+			if($_POST['password'] == $_POST['password_confirmation']){
+				//TODO: validation later
+				//proceed with attempting registration
+
+				$user = new \app\models\User();//TODO
+
+				if($user->getUser($_POST['email']) Or $user->getSeller($_POST['email'])){
+					//redirect with an error message
+					header('location:/User/registerCustomer?error=The username "'.$_POST['email'].'" already exists. Choose another.');
+				}else{
+					$user->email = $_POST['email'];
+					$user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+					$user->insertSeller();//maybe this is where we will have some error checking
+
+					header('location:'.URLROOT.'User/index?message=Success and Welcome, now you can log into your Customer account.');
+				}
+			}
+		}else{
+			//show the registration form
+			$this->view('User/registerCustomer');
 		}
 	}
 
 	#[\app\filters\Login]
 	public function updatePassword(){
-		$profile = new \app\models\Profile();
-			$data = $profile->get($_SESSION["user_id"]);
+		
 		if(isset($_POST['action'])){
 
 			$user = new \app\models\User();
-			$user = $user->get($_SESSION['username']);
+			$user = $user->get($_SESSION['email']);
 
 			if(password_verify($_POST['current_password'], $user->password_hash)){
 					$user->password_hash = password_hash($_POST['new_password'], PASSWORD_DEFAULT);

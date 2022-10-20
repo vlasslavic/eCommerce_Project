@@ -1,1 +1,0 @@
-# This file Will be replaced by the website htdocs folder as soon as the project proposal will be approved.

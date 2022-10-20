@@ -6,8 +6,8 @@ class Main extends \app\core\Controller{
 
 
 	public function index(){
-		$publication = new \app\models\Post();
-		$data = $publication->getAll();
+		
+		
 		
 		if(isset($_POST['action'])){
 			
