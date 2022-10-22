@@ -1,4 +1,4 @@
-# [myRide](/Website)
+# [myRide](/htdocs)
 
 
 We will build a Canadian Tire like Web application where registered customers can add their cars and schedule service appointments, track them and have history of previous records online; as well as buy relative products/accessories for their car.

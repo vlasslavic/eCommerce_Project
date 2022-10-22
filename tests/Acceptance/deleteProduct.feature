@@ -8,7 +8,7 @@ Feature: delete product
     And I am logged-in my "Seller" account
     And I have a profile
     And I have products on my page
-    When I hover on “Product”
+    When I click on “Product”
     And I click on “Modify Product”
     Then all my products are displayed
     When I click "Delete" next to the product I want to delete
@@ -22,7 +22,7 @@ Feature: delete product
     And I am logged-in my "Seller" account
     And I have a profile
     And I don't have products on my page
-    When I hover on “Product”
+    When I click on “Product”
     Then I have only "Add Product" available
     When I click on “Add Product”
     Then I am being redirected to add a product
@@ -31,7 +31,7 @@ Feature: delete product
     Given I am on the website
     And I am logged-in my "Seller" account
     And I don't have a profile
-    When I hover on “Product”
+    When I click on “Product”
     Then I have only "Add Product" available
     When I click on “Add Product”
     Then I am being redirected to create a profile
@@ -42,7 +42,7 @@ Feature: delete product
     And I am logged-in my "Seller" account
     And I have a profile
     And I have products on my page
-    When I hover on “Product”
+    When I click on “Product”
     And I click on “Modify Product”
     Then all my products are displayed
     When I click "Delete" next to the product I want to delete
