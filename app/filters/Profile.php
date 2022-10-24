@@ -6,9 +6,9 @@ class Profile extends \app\core\AccessFilter{
 
 	public function execute(){
 		$profile= new \app\models\Profile();
-		$profile=$profile->get($_SESSION['user_id']);
-		if($profile->user_id!=$_SESSION['user_id']){
-			header('location:'.URLROOT.'Account/settings?error=You must create your profile in order to use this feature!.');
+		$profile=$profile->get($_SESSION['seller_id']);
+		if($profile->seller_id!=$_SESSION['seller_id']){
+			header('location:'.URLROOT.'Profile/createProfile?error=You must create your profile in order to use this feature!.');
 			return true;
 		}
 		return false;

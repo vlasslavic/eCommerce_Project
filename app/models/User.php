@@ -31,10 +31,13 @@ class User extends \app\core\Model{
 
 
 	public function insertUser(){
-		$SQL = "INSERT INTO user(email, password_hash) VALUES (:email, :password_hash)";
+		$SQL = "INSERT INTO user(email, password_hash, first_name, last_name, address) VALUES (:email, :password_hash, :first_name, :last_name, :address)";
 		$STMT = self::$_connection->prepare($SQL);
 		$STMT->execute(['email'=>$this->email,
-						'password_hash'=>$this->password_hash]);
+						'password_hash'=>$this->password_hash,
+						'first_name'=>$this->first_name,
+						'last_name'=>$this->last_name,
+						'address'=>$this->address]);
 	}
 
 	public function insertSeller(){

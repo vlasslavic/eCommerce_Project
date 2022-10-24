@@ -132,16 +132,18 @@ class User extends \app\core\Controller{
 				//TODO: validation later
 				//proceed with attempting registration
 
-				$user = new \app\models\User();//TODO
+				$newUser = new \app\models\User();//TODO
 
-				if($user->getUser($_POST['email']) Or $user->getSeller($_POST['email'])){
+				if($newUser->getUser($_POST['email']) Or $newUser->getSeller($_POST['email'])){
 					//redirect with an error message
 					header('location:/User/registerCustomer?error=The username "'.$_POST['email'].'" already exists. Choose another.');
 				}else{
-					$user->email = $_POST['email'];
-					$user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-					$user->insertSeller();//maybe this is where we will have some error checking
+					$newUser->email = $_POST['email'];
+					$newUser->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+					$newUser->first_name = $_POST['first_name'];
+					$newUser->last_name = $_POST['last_name'];
+					$newUser->address = $_POST['address'];
+					$newUser->insertUser();//maybe this is where we will have some error checking
 
 					header('location:'.URLROOT.'User/index?message=Success and Welcome, now you can log into your Customer account.');
 				}
