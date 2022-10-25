@@ -9,7 +9,7 @@
             <?php $url =  "{$_SERVER['REQUEST_URI']}";
             $escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
             echo'
-          <li><a href="/" class="nav-link text-decoration-none p-2 mx-2 '.((($escaped_url=="/") Or (str_contains($escaped_url, "/Main")))?'bg-warning text-black active':'text-white').'">Home</a></li>
+          <li><a href="/" name="Home" class="nav-link text-decoration-none p-2 mx-2 '.((($escaped_url=="/") Or (str_contains($escaped_url, "/Main")))?'bg-warning text-black active':'text-white').'">Home</a></li>
           <li><a href="#" class="nav-link text-decoration-none p-2 mx-2 '.((str_contains($escaped_url, "/Account"))?'bg-warning text-black active':'text-white').'">Catalog</a></li>
           <li><a href="#" class="nav-link text-decoration-none p-2 mx-2 '.((str_contains($escaped_url, "/Shops"))?'bg-warning text-black active':'text-white').'">Shops</a></li>
           <li><a href="#" class="nav-link text-decoration-none p-2 mx-2 '.((str_contains($escaped_url, "/FAQs"))?'bg-warning text-black active':'text-white').'">FAQs</a></li>
@@ -31,14 +31,17 @@
 
         <div class="d-flex flex-wrap align-items-center my-1 justify-content-center justify-content-lg-start">
         <?php if(!isCustomerLoggedIn() And !isSellerLoggedIn()){echo '
-            <a type="button" href="'.URLROOT.'User/index'.'" class="btn btn-outline-dark me-2 text-decoration-none">Sign In</a>
-            <a type="button" href="'.URLROOT.'User/register'.'" class="btn btn-warning text-decoration-none">Sign Up</a>
+            <a type="button" href="'.URLROOT.'User/index'.'" class="btn btn-outline-dark me-2 text-decoration-none" name="Sign In">Sign In</a>
+            <a type="button" href="'.URLROOT.'User/register'.'" class="btn btn-warning text-decoration-none" name="Sign Up">Sign Up</a>
         ';}?>
        <ul class="nav nav-pills d-flex align-items-center">
        <?php if(isSellerLoggedIn()){echo '
            
             <li class="nav-item">
               <a class="nav-link text-decoration-none text-dark shadow-sm fs-6 fw-bold" aria-current="page" href="#">My Store</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-decoration-none text-dark fs-6 fw-bold hover:" aria-current="page" href="#">Sales</a>
             </li>
             <li class="nav-item dropdown ">
               <a class=" nav-link dropdown-toggle text-decoration-none text-dark  fs-6 fw-bold" data-bs-toggle="dropdown"  role="button" aria-expanded="false">Products<a/>
@@ -63,9 +66,9 @@
         <li>
               <i class="btn bi bi-cart-fill" style="font-size: 1.5rem;"></i>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" name="Profile">
               <img alt="Image Placeholder" src="'.URLROOT.'public/img/account.jpg" class="rounded-circle shadow-4 nav-link dropdown-toggle " data-bs-toggle="dropdown"  role="button" aria-expanded="false""
-                style="width: 5em;" alt="Avatar" />
+                style="width: 5em;" alt="Avatar" name="Profile Pic" />
               <ul class="dropdown-menu ">
                 <li><a class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-person-circle p-2"></i>Profile</a></li>
                 <li><a class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-gear-fill p-2"></i>Settings</a></li>

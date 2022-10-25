@@ -13,12 +13,12 @@
               <p class="mb-4 text-center">Let's log into your account.</p>
               <?php
                   if(isset($_GET['error'])){ ?>
-                <div class="alert alert-danger" role="alert">
+                <div class="alert alert-danger" name="Error" role="alert">
                   <?= $_GET['error'] ?>
                 </div>
                 <?php	}
                   if(isset($_GET['message'])){ ?>
-                <div class="alert alert-success" role="alert">
+                <div class="alert alert-success" name="Success" role="alert">
                   <?= $_GET['message'] ?>
                 </div>
                 <?php	}

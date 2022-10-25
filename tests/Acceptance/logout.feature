@@ -3,18 +3,9 @@ Feature: logout
   As a user
   I need to click "Logout", to logout from my account
 
-  Scenario: try logging-out with a "Customer" account
-    Given I am on the website
-    And I have a "Customer" account
-    And I am already logged-in
-    When I click on “Logout”
-    Then I am logged-out from my account
-    And I am being redirected to the main page
+  Scenario: try logout from account
+    Given I am on "http://localhost/User/profile"
+    When I hover over "Profile Pic"
+    And I click "Logout"
+    Then I am on "http://localhost/User/index"
 
-  Scenario: try logging-out with a "Seller" account
-    Given I am on the website
-    And I have a "Seller" account
-    And I am already logged-in
-    When I click on “Logout”
-    Then I am logged-out from my account
-    And I am being redirected to the main page

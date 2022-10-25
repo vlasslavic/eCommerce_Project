@@ -23,7 +23,7 @@
                 <?php	}
               ?>
             </div>
-            <form action="" method="post">
+            <form action="" method="post" name="Registration Form">
               <div class="form-group first mb-4 mt-3 w-75 mx-auto">
                 <label for="email">Email</label>
                 <input type="email" class="form-control outline-danger" id="email" name="email">

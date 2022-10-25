@@ -30,9 +30,9 @@ class AcceptanceTester extends \Codeception\Actor
     /**
      * @Given I am on :arg1
      */
-     public function iAmOn($arg1)
+     public function iAmOn($url)
      {
-         $this->amOnPage($arg1);
+         $this->amOnPage($url);
      }
 
     /**
@@ -58,4 +58,105 @@ class AcceptanceTester extends \Codeception\Actor
      {
          $this->see($arg1);
      }
+
+    /**
+     * @Then I won't have an account
+     */
+     public function iWontHaveAnAccount()
+     {
+         throw new \PHPUnit\Framework\IncompleteTestError("Step `I won't have an account` is not defined");
+     }
+
+     /**
+     * @When I click :arg1
+     */
+    public function iClick($arg1)
+    {
+        $this->click(['name' => $arg1]);
+    }
+
+    
+    /**
+     * @When I hover over :arg1
+     */
+    public function iHoverOver($arg1)
+    {
+        $this->seeElement(['name' => $arg1]);
+    }
+
+   /**
+    * @Then I see Success
+    */
+    public function iSeeSuccess()
+    {
+        $this->see('Sign In'); 
+    }
+
+    /**
+    * @Then I see Error
+    */
+    public function iSeeError()
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `I see success` is not defined");
+    }
+
+   /**
+    * @Then I see Home Page
+    */
+    public function iSeeHomePage()
+    {
+        $this->amOnPage('/');
+    }
+
+      /**
+     * @When I fill customer information
+     */
+    public function iFillCustomerInformation()
+    {
+        $this->fillField('email', 'testAC');
+        $this->fillField('password', '121212');
+        $this->fillField('password_confirmation', '121212');
+        $this->fillField('first_name', 'John');
+        $this->fillField('last_name', 'Doe');
+        $this->fillField('address', '12 Rue Mine');
+    }
+
+   /**
+    * @When I fill seller information
+    */
+    public function iFillSellerInformation()
+    {
+        $this->fillField('email', 'testDC');
+        $this->fillField('password', '121212');
+        $this->fillField('password_confirmation', '121212');
+    }
+
+
+   /**
+    * @When I input correct credentials
+    */
+    public function iInputCorrectCredentials()
+    {
+        $this->fillField('email', 'test@gmail.com');
+        $this->fillField('password', '121212');
+    }
+
+   /**
+    * @Then I am logged to :arg1 account
+    */
+    public function iAmLoggedToAccount($arg1)
+    {
+        $this->amOnPage('/Main');
+    }
+
+   /**
+    * @When I input wrong credentials
+    */
+    public function iInputWrongCredentials()
+    {
+        $this->fillField('email', '1232Wrong');
+        $this->fillField('password', '121212');
+    }
+    
+
 }
