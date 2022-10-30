@@ -1,14 +1,52 @@
-# [myRide](/htdocs)
+  <!--This button will navigate to the top of this document-->
+<a href="#myride" style=" transition:      all .25s ease-in-out;
+  position:         fixed;
+  bottom:           0;
+  right:            0;
+  display:          inline-flex;
+  color:            #000000;
+  cursor:           pointer;
+  align-items:      center;
+  justify-content:  center;
+  margin:           0 2em 2em 0;
+  border-radius:    50%;
+  padding:          .25em;
+  width:            3em;
+  height:           3em;
+  background-color: #F8F8F8;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<circle style="fill:#FFD15D;" cx="256" cy="256" r="256"/>
+<path style="fill:#F9B54C;" d="M303.092,507.661c103.784-19.299,185.558-101.2,204.662-205.053L327.02,121.292l-68.905-13.364  l-65.296,39.951l68.76,68.873l-17.646,232.324L303.092,507.661z"/>
+<g>
+	<path style="fill:#324A5E;" d="M329.388,123.63l-56.027-56.027c-6.732-6.732-17.648-6.732-24.381,0l-56.027,56.027   c-4.93,4.93-6.404,12.345-3.736,18.787c2.669,6.441,8.954,10.642,15.927,10.642h38.788v296.019h34.478V153.059h38.788   c6.971,0,13.259-4.201,15.927-10.642C335.794,135.975,334.319,128.56,329.388,123.63z"/>
+</g>
+<path style="fill:#2B3B4E;" d="M329.388,123.63l-56.027-56.027c-3.22-3.22-7.397-4.882-11.616-5.022v386.496h16.663V153.059h38.79  c6.971,0,13.259-4.201,15.927-10.642C335.794,135.975,334.319,128.56,329.388,123.63z"/>
+<g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+<g></g><g></g><g></g><g></g>
+</svg>  </a>  
+  
+# myRide
 ## Deliverable 2 - Feature Suite and ERD
+*420-411-VA ECOMMERCE section 00002*    
 
 We will build a Canadian Tire like Web application where registered customers can add their cars and schedule service appointments, track them and have history of previous records online; as well as buy relative products/accessories for their car.  
+  
+## Table of contents  
+1. [List of Features](#our-project-will-support-the-following-feature-stories)
+2. [Test Scenarions](#test-scenarios) 
+2. [Database Design](#erd) 
 
-## Team: BootstrapFTW - Team Members:
+## Team: BootstrapFTW   
+
+##### Team Members:  
+
 - [Veaceslav Vlas](https://github.com/vlasslavic)
 - [Anthony Mastronardi](https://github.com/antho-mastro)
+##### Teacher:  
+- [Michel Paquette](https://github.com/paquettm)
 
+<div style='page-break-after: always'></div>
 
-## Our project will support the following stories:
+## Our project will support the following feature stories:
  This is our complete list of features along with the reference to their Test scenarions:
 
 | **As a** | **I can**                                                                                      |**Test Scenario #**  |
@@ -18,17 +56,19 @@ We will build a Canadian Tire like Web application where registered customers ca
 |  Seller  | Add, modify and delete products for sale (3 features).                                         |[7](#feature-7-add-product),[8](#feature-8-modify-product),[9](#feature-9-delete-product)                    |
 |  Seller  | View product sales, cancel an order or mark an order as shipped (3 features).                  |[10](#feature-10-view-sales),[11](#feature-11-cancel-order),[12](#feature-12-mark-order-shipped)       |
 |  Seller  | Add, modify and delete services (3 features).                                                  |[13](#feature-13-add-service),[14](#feature-14-modify-service),[15](#feature-15-delete-service)        |
-|  Seller  | View client appointments for service, modify appointment and cancel appointment (3 features).  |[16](#feature-16-view-appointments),[17](#feature-17-modify-client-appointment),[18](#feature-18-delete-client-appointment)        |
+|  Seller  | View client appointments for service, modify appointment and cancel appointment (3 features).  |[16](#feature-16-view-appointments),[17](#feature-17-modify-client-appointment),[18](#feature-18-cancel-client-appointment)        |
 |  Seller  | Change appointment status (1 features).                                                        |[19](#feature-19-change-appointment-status)                |
 |  User    | Register, login, and logout (these are not new features - they are given in class).            |[1](#feature-1-register),[2](#feature-2-login),[3](#feature-3-logout)             |
 |  User    | Add, modify, delete a car to/from my garage (Year/Make/Model/Engine/VIN) (3 features).         |[20](#feature-20-add-car),[21](#feature-21-modify-car),[22](#feature-22-delete-car)           |
-|  User    | Schedule, modify and cancel my service appointment/s (3 features).                             |[23](#feature-23-schedule-my-appointment),[24](#feature-24-modify-my-appointment),[24](#feature-24-delete-my-appointment)          |
+|  User    | Schedule, modify and cancel my service appointment/s (3 features).                             |[23](#feature-23-schedule-my-appointment),[24](#feature-24-modify-my-appointment),[25](#feature-25-cancel-my-appointment)         |
 |  User    | Check the status of the current service appointment (1 feature).                               |[26](#feature-26-view-my-appointment-status)                 |
 |  User    | Can check past service records. (1 feature).                                                   |[27](#feature-27-view-past-records)                 |
 |  User    | Search the product catalog (1 feature).                                                        |[28](#feature-28-search-product)                |
 |  User    | See product details (1 feature).                                                               |[29](#feature-29-view-product-details)                 |
-|  User    | Add, modify and remove quantities of products from/to shopping cart (3 features).              |[30](#feature-30-add-to-cart),[31](#feature-31-modify-cart),[32](#feature-33-remove-cart)           |
+|  User    | Add, modify and remove quantities of products from/to shopping cart (3 features).              |[30](#feature-30-add-to-cart),[31](#feature-31-modify-cart),[32](#feature-32-remove-cart)           |
 |  User    | Checkout my order (1 feature).                                                                 |[33](#feature-33-checkout-cart)                |
+  
+<div style='page-break-after: always'></div>  
 
 ## Test Scenarios:
 This list contains the description of all test scenarios:
@@ -82,7 +122,7 @@ In order to create an account, As a user, I need to click sign up, select the us
         And I see "Seller"
         When I click "Home"    
         Then I see Home Page
-
+                                      
 ### Feature 2: Login    
 In order to login, As a user, I need to click "Login", input my credentials and click "Login" to access my account.   
 
@@ -1211,6 +1251,8 @@ In order to checkout, As a "Customer", I need to have a "Customer" account and c
         When I click "Cancel"
         Then I am on "http://localhost/Catalog/viewCart"
         And I see "My Cart List"
+  
+<div style='page-break-after: always'></div>  
 
 ## ERD:
  This picture shows the database design required for our implementation:
