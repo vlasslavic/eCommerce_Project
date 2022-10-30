@@ -13,7 +13,7 @@ We will build a Canadian Tire like Web application where registered customers ca
 
 | **As a** | **I can**                                                                                      |**Test Scenario #**  |
 |:--------:|:-----------------------------------------------------------------------------------------------|:-----------------:|
-|  Seller  | Register, login, and logout (these are not new features - they are given in class).            |[1](####Feature-1:-register),[2](####Feature-2:-Login),[3](####Feature-3:-Logout)             |
+|  Seller  | Register, login, and logout (these are not new features - they are given in class).            |[1](#f1),[2](####Feature-2:-Login),[3](####Feature-3:-Logout)             |
 |  Seller  | Create, modify and disable my store profile (3 features).                                      |4,5,6              |
 |  Seller  | Add, modify and delete products for sale (3 features).                                         |7,8,9              |
 |  Seller  | View product sales, cancel an order or mark an order as shipped (3 features).                  |10,11,12           |
@@ -38,7 +38,7 @@ Legend:
   * "**Seller**"- registered user with a "Seller" account;
 
 
-#### **Feature 1: register**    
+### [Feature 1: register](f1)    
 In order to create an account, As a user, I need to click sign up, select the user type, fill form and click "Register" to create an account
       
     Feature: Register
