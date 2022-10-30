@@ -12,21 +12,21 @@ We will build a Canadian Tire like Web application where registered customers ca
 
 | **As a** | **I can**                                                                                      |
 |:--------:|:-----------------------------------------------------------------------------------------------|
-|  Seller  | Register, login, and logout (these are not new features - they are given in class).                |
-|  Seller  | Create, modify and disable my store profile (3 features).                                          |
-|  Seller  | Add, modify and delete products for sale (3 features).                                             |
-|  Seller  | View product sales, cancel an order or mark an order as shipped (3 features).              |
-|  Seller  | Add, modify and delete services (3 features).                                                      |
-|  Seller  | View client appointments for service/delete/modify (3 features).                               |
-|  Seller  | Change appointmen status (1 features).                                                         |
+|  Seller  | Register, login, and logout (these are not new features - they are given in class).            |
+|  Seller  | Create, modify and disable my store profile (3 features).                                      |
+|  Seller  | Add, modify and delete products for sale (3 features).                                         |
+|  Seller  | View product sales, cancel an order or mark an order as shipped (3 features).                  |
+|  Seller  | Add, modify and delete services (3 features).                                                  |
+|  Seller  | View client appointments for service, modify appointment and cancel appointment (3 features).  |
+|  Seller  | Change appointment status (1 features).                                                        |
 |  User    | Register, login, and logout (these are not new features - they are given in class).            |
-|  User    | Add/delete/modify a car to/from my garage (Year/Make/Model/Engine/VIN) (3 features).           |
-|  User    | Schedule/delete/modify my service appointment/s (3 features).                                  |
+|  User    | Add, modify, delete a car to/from my garage (Year/Make/Model/Engine/VIN) (3 features).         |
+|  User    | Schedule, modify and cancel my service appointment/s (3 features).                             |
 |  User    | Check the status of the current service appointment (1 feature).                               |
 |  User    | Can check past service records. (1 feature).                                                   |
-|  User    | Search the product catalog (1 feature).                                                        |
+|  User    | Search the product catalog (1 feature).                                                        |               
 |  User    | See product details (1 feature).                                                               |
-|  User    | Add/delete/modify quantities for products to my shopping cart (3 features).                    |
+|  User    | Add, modify and remove quantities of products from/to shopping cart (3 features).              |
 |  User    | Checkout my order (1 feature).                                                                 |
 
 ## Timeline:

@@ -7,7 +7,7 @@
                 <img src="<?php echo''.URLROOT.'' ?>/public/img/undraw_By_my_car_re_j3jt.png" class="card-img-top " alt="..."  height="200" >
                     <div class="card-body">
                         <h5 class="card-title fs-2">Customer</h5>
-                        <p class="card-text pb-3">Set appointments with verified repair shops, shop car croducts and have your car history in one place.</p>
+                        <p class="card-text pb-3">Set appointments with verified repair shops, have your car maintenance history and shop car products, all in one place.</p>
                     
                     </div>
                 </div>

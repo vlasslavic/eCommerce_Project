@@ -66,14 +66,14 @@
         <li>
               <i class="btn bi bi-cart-fill" style="font-size: 1.5rem;"></i>
             </li>
-            <li class="nav-item dropdown" name="Profile">
+            <li class="nav-item dropdown" name="Profile Pic">
               <img alt="Image Placeholder" src="'.URLROOT.'public/img/account.jpg" class="rounded-circle shadow-4 nav-link dropdown-toggle " data-bs-toggle="dropdown"  role="button" aria-expanded="false""
                 style="width: 5em;" alt="Avatar" name="Profile Pic" />
               <ul class="dropdown-menu ">
                 <li><a class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-person-circle p-2"></i>Profile</a></li>
                 <li><a class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-gear-fill p-2"></i>Settings</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a href="Main/logout"class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-door-open-fill p-2"></i>Logout</a></li>
+                <li><a name="Logout" href="Main/logout"class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-door-open-fill p-2"></i>Logout</a></li>
               </ul>
             </li>';}?>
           </ul>

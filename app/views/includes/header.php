@@ -19,11 +19,9 @@
         <script src="https://code.jquery.com/jquery-3.6.1.min.js"
             integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <?php
-          
-    echo'<link rel="icon" type="image/png" href="/public/img/favicon.png">
-        <link rel="stylesheet" href="/public/css/styles.css">'
-    ?>
+    <link rel="icon" type="image/x-icon" href="http://localhost/public/img/favicon.ico">
+    <link rel="stylesheet" href="http://localhost/public/css/styles.css">'
+  
     <title>myRide</title>    
   
 </head>

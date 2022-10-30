@@ -59,6 +59,7 @@ class AcceptanceTester extends \Codeception\Actor
          $this->see($arg1);
      }
 
+
     /**
      * @Then I won't have an account
      */
@@ -76,13 +77,14 @@ class AcceptanceTester extends \Codeception\Actor
     }
 
     
-    /**
-     * @When I hover over :arg1
+     /**
+     * @Given I am logged-in :arg1
      */
-    public function iHoverOver($arg1)
+    public function loggedIn($arg1)
     {
-        $this->seeElement(['name' => $arg1]);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `I am logged-in :arg1` is not defined");
     }
+
 
    /**
     * @Then I see Success

@@ -1,7 +1,7 @@
 Feature: register
   In order to create an account
   As a user
-  I need to click sign up, select the user type, fill form and click "Register" to create account
+  I need to click sign up, select the user type, fill form and click "Register" to create an account
 
   Scenario: try register a "Customer" account
     Given I am on "http://localhost/"
@@ -38,7 +38,7 @@ Feature: register
     And I see "Customer"
     And I see "Seller"
     When I click "Home"    
-    Then I see Home Page
+    Then I am on "http://localhost/Main/index"
 
 
 
