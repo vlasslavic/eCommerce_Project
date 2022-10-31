@@ -14,7 +14,7 @@ This document contains the plan of action, and is intended to be used as a task 
 |:--------:|:-----------------------------------------------------------------------------------------------|:---------:|
 |  Seller  | Register, login, and logout (these are not new features - they are given in class).            | Done      |
 |  Seller  | Add, modify and delete products for sale (3 features).                                         |           |
-|  Seller  | Create and modify my store profile (2 features).                                               | Started   |
+|  Seller  | Create and modify my store profile (2 features).                                               | Started - Veaci   |
 |  Seller  | View product purchases, cancel an order or mark an order as shipped (2 features).              |           |
 |  Seller  | View client appointments for service/delete/modify and ask to confirm (4 features).            |           |
 |  Seller  | Change appointmen status (1 features).                                                         |           |
