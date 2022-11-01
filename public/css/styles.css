@@ -85,3 +85,8 @@
     /*when navigating through the items using the arrow keys:*/
     background-color: rgba(0, 0, 0, 0.1);
   }
+
+
+  .dropdown-item.active, .dropdown-item:active {
+    background-color:#ffc107;
+  }

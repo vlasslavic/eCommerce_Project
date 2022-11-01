@@ -1,4 +1,4 @@
-<header class="fixed-top bg-dark ">
+<header class=" bg-dark ">
       <div class="d-flex bg-dark flex-wrap text-white align-items-center mx-5 justify-content-center justify-content-md-between py-3 pt-2 ">
         <a href="/" class="d-flex align-items-center fs-1  mb-2 mb-lg-0 ms-3 text-white text-decoration-none ">
         <img alt=" profile picture" style="height:1.5em;" crossorigin="anonymous" raggable="false" src="<?php echo''.URLROOT.''?>public/img/logo.png">
@@ -14,7 +14,7 @@
           <li><a href="#" class="nav-link text-decoration-none p-2 mx-2 '.((str_contains($escaped_url, "/Shops"))?'bg-warning text-black active':'text-white').'">Shops</a></li>
           <li><a href="#" class="nav-link text-decoration-none p-2 mx-2 '.((str_contains($escaped_url, "/FAQs"))?'bg-warning text-black active':'text-white').'">FAQs</a></li>
           <li><a href="#" class="nav-link text-decoration-none p-2 mx-2 '.((str_contains($escaped_url, "/Main/about"))?'bg-warning text-black active':'text-white').'">About</a></li>
-          ';?>
+          '?>
         </ul>
         
 
@@ -68,8 +68,7 @@
               <i class="btn bi bi-cart-fill" style="font-size: 1.5rem;"></i>
             </li> 
         ';}?>
-
-        <?php if(isLoggedIn()){ echo'
+        <?php if(isCustomerLoggedIn()){ echo'
             <li class="nav-item dropdown" name="Profile Pic">
               <img alt="Image Placeholder" src="'.URLROOT.'public/img/account.jpg" class="rounded-circle shadow-4 nav-link dropdown-toggle " data-bs-toggle="dropdown"  role="button" aria-expanded="false""
                 style="width: 5em;" alt="Avatar" name="Profile Pic" />
@@ -81,10 +80,19 @@
               </ul>
             </li> 
           ';}?>
+          <?php if(isSellerLoggedIn()){ echo'
+            <li class="nav-item dropdown" name="Profile Pic">
+              <img alt="Image Placeholder" src="'.URLROOT.'public/img/account.jpg" class="rounded-circle shadow-4 nav-link dropdown-toggle " data-bs-toggle="dropdown"  role="button" aria-expanded="false"
+                style="width: 5em;" alt="Avatar" name="Profile Pic" />
+              <ul class="dropdown-menu ">
+                <li><a class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-person-circle p-2"></i>Profile</a></li>
+                <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Profile/settings"><i class="bi bi-gear-fill p-2"></i>Settings</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a name="Logout" href="Main/logout" class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-door-open-fill p-2"></i>Logout</a></li>
+              </ul>
+            </li> 
+          ';}?>
           </ul>
-            <!-- <a type="button" class="btn btn-light">
-                    <i class="bi bi-cart" style="font-size: 1.5rem;"></i>
-            </a>     -->
         </div>
         </div>
 </header>

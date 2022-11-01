@@ -112,6 +112,7 @@
 
 </div>
 
+<?php require APPROOT . '/views/includes/footer.php'?>
 
 <!-- Script to power the Address Autofill function -->
 <script>

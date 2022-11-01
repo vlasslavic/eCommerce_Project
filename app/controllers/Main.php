@@ -2,13 +2,7 @@
 namespace app\controllers;
 
 class Main extends \app\core\Controller{
-
-
-
 	public function index(){
-		
-		
-		
 		if(isset($_POST['action'])){
 			
 			if(isLoggedIn()){
@@ -41,7 +35,11 @@ class Main extends \app\core\Controller{
 			header('location:'.URLROOT.'User/index?error=You need an account in order to post comments.');
 			}
 		}else{
-			$this->view('Main/index',$data);
+			if(isset($data)){
+				$this->view('Main/index',$data);
+			}else{
+				$this->view('Main/index');
+			}
 		}
 	}
 

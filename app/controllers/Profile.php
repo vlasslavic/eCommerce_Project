@@ -10,11 +10,7 @@ public function myStore(){
 
 public function settings(){
 			$profile = new \app\models\Profile();
-            $user = new \app\models\User();
-            if(isset($_SESSION["profile_id"])){
-			    $data = $profile->get($_SESSION["profile_id"]);
-            }
-			
+
 		if(isset($_POST['action'])){
 
 				$profile->user_id = $_SESSION["user_id"];
@@ -34,8 +30,11 @@ public function settings(){
 				
 			
 		
-		}else{
-		$this->view('Profile/settings',$data);}
+		}elseif(isset($_SESSION["profile_id"])){
+            $data = $profile->get($_SESSION["profile_id"]);
+            $this->view('Profile/settings',$data);
+        }else{
+		    $this->view('Profile/settings');}
 	}
 
 

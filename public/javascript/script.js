@@ -1,8 +1,11 @@
 function addressAutocomplete(containerElement, callback, options) {
     // create input element
+    var storedVal = document.getElementById("autocomplete-container").getAttribute("value");
     var inputElement = document.createElement("input");
     inputElement.setAttribute("type", "text");
+    inputElement.setAttribute("value", storedVal);
     inputElement.setAttribute("name", "address");
+    inputElement.setAttribute("class", "rounded-2");
     inputElement.setAttribute("placeholder", options.placeholder);
     containerElement.appendChild(inputElement);
   
@@ -198,5 +201,3 @@ function addressAutocomplete(containerElement, callback, options) {
   }, {
       placeholder: "Enter an address here"
   });
-       
-    
