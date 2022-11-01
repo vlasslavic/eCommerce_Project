@@ -12,7 +12,7 @@ This file contains the guidelines and requirements for every deliverable, presen
 This folder contains the files and folders that are required every couple of weeks from our teacher.
 
 ## Extra Small Features
-1. Address Fields Autocomplete using (Geoapify Address Autocomplete API)
+1. Address Fields Autocomplete ( using Geoapify Address Autocomplete API )
 
 ## Copyright and License
 
