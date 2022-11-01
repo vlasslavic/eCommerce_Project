@@ -19,8 +19,9 @@
         <title>myRide</title>    
   
 </head>
-<body class="bg-light">
+<body class="bg-light user-select-none">
 <?php require APPROOT . '/views/includes/navigation.php'?>
+<main>
 
 
 
