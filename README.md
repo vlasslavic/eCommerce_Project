@@ -11,6 +11,9 @@ This file contains the guidelines and requirements for every deliverable, presen
 ## [Deliverables](/Deliverables)
 This folder contains the files and folders that are required every couple of weeks from our teacher.
 
+## [Extra Small Features]
+Address Autocomplete using (Geoapify Address Autocomplete API)
+
 ## Copyright and License
 
 Copyright 2022. Code released under the [MIT](https://github.com/vlasslavic/eCommerce_Project/blob/main/LICENSE) license.
