@@ -35,8 +35,7 @@
             <a type="button" href="'.URLROOT.'User/register'.'" class="btn btn-warning text-decoration-none" name="Sign Up">Sign Up</a>
         ';}?>
        <ul class="nav nav-pills d-flex align-items-center">
-       <?php if(isSellerLoggedIn()){echo '
-           
+        <?php if(isSellerLoggedIn()){echo '   
             <li class="nav-item">
               <a class="nav-link text-decoration-none text-dark shadow-sm fs-6 fw-bold" aria-current="page" href="#">My Store</a>
             </li>
@@ -62,10 +61,15 @@
             
             
         ';}?>
-        <?php if(isLoggedIn()){ echo'
-        <li>
+        
+
+        <?php if(isCustomerLoggedIn()){ echo'
+            <li>
               <i class="btn bi bi-cart-fill" style="font-size: 1.5rem;"></i>
-            </li>
+            </li> 
+        ';}?>
+
+        <?php if(isLoggedIn()){ echo'
             <li class="nav-item dropdown" name="Profile Pic">
               <img alt="Image Placeholder" src="'.URLROOT.'public/img/account.jpg" class="rounded-circle shadow-4 nav-link dropdown-toggle " data-bs-toggle="dropdown"  role="button" aria-expanded="false""
                 style="width: 5em;" alt="Avatar" name="Profile Pic" />
@@ -75,7 +79,8 @@
                 <li><hr class="dropdown-divider"></li>
                 <li><a name="Logout" href="Main/logout"class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-door-open-fill p-2"></i>Logout</a></li>
               </ul>
-            </li>';}?>
+            </li> 
+          ';}?>
           </ul>
             <!-- <a type="button" class="btn btn-light">
                     <i class="bi bi-cart" style="font-size: 1.5rem;"></i>
