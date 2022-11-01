@@ -13,19 +13,15 @@
 <?php	}
 ?>
 
-<!-- Code for goeapify for address autocomplete -->
-<!-- fetch("https://api.geoapify.com/v1/geocode/autocomplete?text=YOUR_TEXT&lang=en&limit=5&filter=countrycode:ca&format=json&apiKey=YOUR_API_KEY")
-  .then(response => response.json())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error)); -->
-
 <div class="container">
-    <div class="row align-items-start h-100">
-        <div class="col-3 border h-100">
-            <div>Profile Settings</div>
-            <div>Change Password</div>
+    <div class="row align-items-start ">
+        <div class="col-3 text-center border rounded-2 d-flex justify-content-center">
+             <div class="col text-start justify-content-center align-items-center g-2 mt-3 mb-5 ms-3 me-3">
+                <div class="row d-flex justify-content-center text-center"><a class="btn btn-warning shadow-sm ">Profile Settings</a></div>
+                <div class="row d-flex justify-content-center text-center"><a class="mt-1 btn ">Change Password</a></div>
+            </div>
         </div>
-        <div class="col-9 border justify-content-end">
+        <div class="ms-5 col-8 border justify-content-center rounded-2">
             <div class="row d-flex justify-content-center align-items-center g-2 mt-4">
                 <div class="col-3 justify-content-end">
                     <div class="d-flex justify-content-end align-content-center">
