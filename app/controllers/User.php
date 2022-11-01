@@ -16,8 +16,7 @@ class User extends \app\core\Controller{
 					//correct password provided
 					$_SESSION['email'] = $user->email;
 					$_SESSION['user_id'] = $user->user_id;
-					$_SESSION['profile_id'] = $profile->profile_id;
-					$_SESSION['profile'] = $profile;
+					
 					// $_SESSION['posts'] = $posts;
 					
 					header('location:'.URLROOT.'Main');
@@ -28,12 +27,18 @@ class User extends \app\core\Controller{
 			}else{
 				$user = new \app\models\User();
 				$user = $user->getSeller($_POST['email']);
+				$profile = new \app\models\Profile();
+				$profile = $profile->get($user->seller_id);
+
 				if(isset($user->seller_id)){
 					if(password_verify($_POST['password'], $user->password_hash)){
 						//correct password provided
 						$_SESSION['email'] = $user->email;
 						$_SESSION['seller_id'] = $user->seller_id;
-						$_SESSION['profile_id'] = $profile->profile_id;
+						//Check if profile is created
+						if(isset($profile->profile_id)){
+							$_SESSION['profile_id'] = $profile->profile_id;
+						}
 
 						// $_SESSION['posts'] = $posts;
 						

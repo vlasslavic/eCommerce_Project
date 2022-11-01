@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="icon" type="image/x-icon" href="http://localhost/public/img/favicon.ico">
     <link rel="stylesheet" href="http://localhost/public/css/styles.css">'
-  
+    <script type="text/javascript" src="http://localhost/public/javascript/script.js"></script>
     <title>myRide</title>    
   
 </head>
@@ -29,7 +29,7 @@
 <body class="bg-light">
 <!-- nav bar END -->
 <?php require APPROOT . '/views/includes/navigation.php' ?>
-<div class="my-5 py-2"></div>
+<div class="mt-5 pt-5 mb-n5 pb-n5">
 
 
 
