@@ -52,7 +52,7 @@
               </div>
               
 
-              <span class="d-block text-center my-4 text-muted"><input type="submit" name="action"  value="Sign Un" class="btn btn-block btn-warning shadow fs-4 fw-bold me-3">
+              <span class="d-block text-center my-4 text-muted"><input type="submit" name="action"  value="Sign Up" class="btn btn-block btn-warning shadow fs-4 fw-bold me-3">
               Already have an account? <a href="<?php echo''.URLROOT.''?>User/index" class="fs-6 fw-bold text-black pl-4">Sign In</a></span>
               
               
