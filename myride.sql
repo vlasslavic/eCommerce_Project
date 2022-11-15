@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 01, 2022 at 01:07 AM
+-- Generation Time: Nov 16, 2022 at 12:54 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.10
 
@@ -33,11 +33,18 @@ CREATE TABLE `profile` (
   `business_name` varchar(32) NOT NULL,
   `description` text DEFAULT NULL,
   `picture` varchar(20) DEFAULT NULL,
-  `phone` int(11) NOT NULL,
+  `phone` bigint(11) NOT NULL,
   `email` varchar(72) DEFAULT NULL,
   `address` text NOT NULL,
   `isEnabled` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `profile`
+--
+
+INSERT INTO `profile` (`profile_id`, `seller_id`, `business_name`, `description`, `picture`, `phone`, `email`, `address`, `isEnabled`) VALUES
+(57, 1, 'Bob\'s Garage2', 'aef', '636c96175beec.jpg', 5144306090, 'vlasslavic@gmail.com', '3563 Rue Jordi-Bonet, Boisbriand, QC J7E 1H5, Canada', 1);
 
 -- --------------------------------------------------------
 
@@ -56,7 +63,7 @@ CREATE TABLE `seller` (
 --
 
 INSERT INTO `seller` (`seller_id`, `email`, `password_hash`) VALUES
-(1, 'test@mail.com', '$2y$10$Q8nVbS7mgZs7Tyjpw43Ob.jesryJgA6R1yaqe/tOfCfwxXEobDf9C');
+(1, 'test@mail.com', '$2y$10$JB6l/r.MybITPZnEb8i9qeYgXD/Fq.gneC4tG6xStovjkhUQn//DO');
 
 -- --------------------------------------------------------
 
@@ -90,7 +97,7 @@ INSERT INTO `user` (`user_id`, `email`, `password_hash`, `first_name`, `last_nam
 --
 ALTER TABLE `profile`
   ADD PRIMARY KEY (`profile_id`),
-  ADD KEY `FK Profile to Seller` (`seller_id`);
+  ADD UNIQUE KEY `seller_id` (`seller_id`);
 
 --
 -- Indexes for table `seller`
@@ -114,7 +121,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `profile_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `profile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `seller`
@@ -136,7 +143,7 @@ ALTER TABLE `user`
 -- Constraints for table `profile`
 --
 ALTER TABLE `profile`
-  ADD CONSTRAINT `FK Profile to Seller` FOREIGN KEY (`seller_id`) REFERENCES `seller` (`seller_id`);
+  ADD CONSTRAINT `FK Profile to Seller` FOREIGN KEY (`seller_id`) REFERENCES `seller` (`seller_id`) ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
