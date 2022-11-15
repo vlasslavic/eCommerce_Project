@@ -12,18 +12,7 @@
 <?php	}
 ?>
 
-<style>
-  .success{
-    <?php if(empty($data)){?> 
-        display: none;
-    <?php }else{ ?>
-        margin: auto;
-        width: 12%;
-        padding: 10px;
-    <?php } ?>
-  }
 
-</style>
 
 
                 <div class="container" style="display: flex; flex-direction: row; justify-content:center; height: 80%; max-width: 80%; margin-top:2rem;">

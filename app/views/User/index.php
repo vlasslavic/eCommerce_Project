@@ -11,18 +11,6 @@
               <div class="mb-4">
               <h3 class="fs-1 text-center">Sign In</h3>
               <p class="mb-4 text-center">Let's log into your account.</p>
-              <?php
-                  if(isset($_GET['error'])){ ?>
-                <div class="alert alert-danger" name="Error" role="alert">
-                  <?= $_GET['error'] ?>
-                </div>
-                <?php	}
-                  if(isset($_GET['message'])){ ?>
-                <div class="alert alert-success" name="Success" role="alert">
-                  <?= $_GET['message'] ?>
-                </div>
-                <?php	}
-              ?>
             </div>
             <form action="" method="post" class="">
               <div class="form-group first w-75 mx-auto">

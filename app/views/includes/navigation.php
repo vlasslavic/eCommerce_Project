@@ -1,6 +1,6 @@
 <header class=" bg-dark ">
       <div class="d-flex bg-dark flex-wrap text-white align-items-center mx-5 justify-content-center justify-content-md-between py-3 pt-2 ">
-        <a href="/" class="d-flex align-items-center fs-1  mb-2 mb-lg-0 ms-3 text-white text-decoration-none ">
+        <a href="<?php echo''.URLROOT.'';?>" class="d-flex align-items-center fs-1  mb-2 mb-lg-0 ms-3 text-white text-decoration-none ">
         <img alt=" profile picture" style="height:1.5em;" crossorigin="anonymous" raggable="false" src="<?php echo''.URLROOT.''?>public/img/logo.png">
         </a>
         
@@ -9,7 +9,7 @@
             <?php $url =  "{$_SERVER['REQUEST_URI']}";
             $escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
             echo'
-          <li><a href="/" name="Home" class="nav-link text-decoration-none p-2 mx-2 '.((($escaped_url=="/") Or (str_contains($escaped_url, "/Main")))?'bg-warning text-black active':'text-white').'">Home</a></li>
+          <li><a href="'.URLROOT.'" name="Home" class="nav-link text-decoration-none p-2 mx-2 '.((($escaped_url=="/") Or (str_contains($escaped_url, "/Main")))?'bg-warning text-black active':'text-white').'">Home</a></li>
           <li><a href="#" class="nav-link text-decoration-none p-2 mx-2 '.((str_contains($escaped_url, "/Account"))?'bg-warning text-black active':'text-white').'">Catalog</a></li>
           <li><a href="#" class="nav-link text-decoration-none p-2 mx-2 '.((str_contains($escaped_url, "/Shops"))?'bg-warning text-black active':'text-white').'">Shops</a></li>
           <li><a href="#" class="nav-link text-decoration-none p-2 mx-2 '.((str_contains($escaped_url, "/FAQs"))?'bg-warning text-black active':'text-white').'">FAQs</a></li>
@@ -76,7 +76,7 @@
                 <li><a class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-person-circle p-2"></i>Profile</a></li>
                 <li><a class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-gear-fill p-2"></i>Settings</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a name="Logout" href="Main/logout"class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-door-open-fill p-2"></i>Logout</a></li>
+                <li><a name="Logout" href="Main/logout" class="dropdown-item text-decoration-none text-dark" ><i class="bi bi-door-open-fill p-2"></i>Logout</a></li>
               </ul>
             </li> 
           ';}?>
@@ -85,7 +85,7 @@
               <img alt="Image Placeholder" src="'.URLROOT.'public/img/account.jpg" class="rounded-circle shadow-4 nav-link dropdown-toggle " data-bs-toggle="dropdown"  role="button" aria-expanded="false"
                 style="width: 5em;" alt="Avatar" name="Profile Pic" />
               <ul class="dropdown-menu ">
-                <li><a class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-person-circle p-2"></i>Profile</a></li>
+                <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Profile/myStore"><i class="bi bi-person-circle p-2"></i>Profile</a></li>
                 <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Profile/settings"><i class="bi bi-gear-fill p-2"></i>Settings</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a name="Logout" href="Main/logout" class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-door-open-fill p-2"></i>Logout</a></li>

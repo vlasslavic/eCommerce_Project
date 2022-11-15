@@ -91,7 +91,7 @@ class User extends \app\core\Controller{
 
 	public function logout(){
 		session_destroy();
-		header('location:'.URLROOT.'Main/index?message=You\'ve been successfully logged out.');
+		header('location:'.URLROOT.'User/index?message=You\'ve been successfully logged out.');
 	}
 
 	//process of requesting the username and password wanted by the user
@@ -165,16 +165,30 @@ class User extends \app\core\Controller{
 		if(isset($_POST['action'])){
 
 			$user = new \app\models\User();
-			$user = $user->get($_SESSION['email']);
-
-			if(password_verify($_POST['current_password'], $user->password_hash)){
-					$user->password_hash = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
-					$user->updatePassword();//maybe this is where we will have some error checking
-
-					header('location:'.URLROOT.'Account/settings?message=Success, password changed.');
+			
+			if(isset($_SESSION['seller_id'])){
+				$user = $user->getSeller($_SESSION['email']);
 				
-			}else{
-				header('location:'.URLROOT.'User/updatePassword?error=Current password is incorrect.');
+				if(password_verify($_POST['current_password'], $user->password_hash)){
+					$user->password_hash = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
+					$user->updateSellerPassword();//maybe this is where we will have some error checking
+
+					header('location:'.URLROOT.'User/updatePassword?message=Success, password changed.');
+				
+					}else{
+						header('location:'.URLROOT.'User/updatePassword?error=Current password is incorrect.');
+					}
+			}else if(isset($_SESSION['user_id'])){
+				$user = $user->getUser($_SESSION['email']);
+				if(password_verify($_POST['current_password'], $user->password_hash)){
+						$user->password_hash = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
+						$user->updateUserPassword();//maybe this is where we will have some error checking
+
+						header('location:'.URLROOT.'User/updatePassword?message=Success, password changed.');
+					
+				}else{
+					header('location:'.URLROOT.'User/updatePassword?error=Current password is incorrect.');
+				}
 			}
 		
 		}else{

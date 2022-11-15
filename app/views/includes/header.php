@@ -21,6 +21,29 @@
 </head>
 <body class="bg-light user-select-none">
 <?php require APPROOT . '/views/includes/navigation.php'?>
+
+<!-- Show Messages and Errors -->
+<?php
+	if(isset($_GET['error'])){ ?>
+<div class="alert alert-danger headline text-center" role="alert">
+    <?= $_GET['error'] ?>
+</div>
+<?php	}
+
+if(isset($_GET['info'])){ ?>
+<div class="alert alert-warning headline text-center" role="alert">
+<?= $_GET['info'] ?>
+</div>
+<?php	}
+
+	if(isset($_GET['message'])){ ?>
+<div class="alert alert-success headline text-center" role="alert">
+    <?= $_GET['message'] ?>
+</div>
+<?php	}
+?>
+
+
 <main>
 
 
