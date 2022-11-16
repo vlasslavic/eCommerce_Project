@@ -33,6 +33,8 @@ public function settings(){
 				$_SESSION['profile_id'] = $profile->profile_id;
 				header('location:'.URLROOT.'Profile/settings');
 			}else{
+				
+				$profile->profile_id = $_SESSION['profile_id'];
 				$profile->update(); 
 				header('location:'.URLROOT.'Profile/settings?message=Your profile has been updated!');
 				

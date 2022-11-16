@@ -31,7 +31,7 @@ class Profile extends \app\core\Model{
 	}
 	
 	public function insert(){
-		$SQL = "INSERT INTO profile(seller_id, business_name, description, picture, phone, email, address, isEnabled) VALUES (:seller_id, :business_name, :description, :picture, :phone, :email, :address, :isEnabled)";
+		$SQL = "INSERT INTO profile (seller_id, business_name, description, picture, phone, email, address, isEnabled) VALUES (:seller_id, :business_name, :description, :picture, :phone, :email, :address, :isEnabled)";
 		$STMT = self::$_connection->prepare($SQL);
 		$STMT->execute(['seller_id'=>$this->seller_id,
 						'business_name'=>$this->business_name,
