@@ -3,7 +3,7 @@
     {echo '<div class="alert alert-warning headline text-center -mt-2" role="alert">
             Your profile is disabled! Users won\'t be able to see your awesome store.
           </div>';}?>
-<div class="container mt-4">
+<div class="container  mt-4">
     <div class="row align-items-start ">
         <div class="col-3 text-center border rounded-2 justify-content-center bg-white shadow">
              <div class="col text-start justify-content-center align-items-center g-2 mt-3 mb-5 ms-3 me-3">

@@ -5,8 +5,13 @@ class Profile extends \app\core\Controller{
 	
 #[\app\filters\Profile]    
 public function myStore(){
-		$this->view('/Profile/myStore');
-	
+	$profile = new \app\models\Profile();
+		if(isset($_SESSION["profile_id"])){
+            $data = $profile->get($_SESSION["seller_id"]);
+            $this->view('/Profile/myStore',$data);
+			
+        }else{
+		    $this->view('/Profile/myStore');}
 }
 
 #[\app\filters\Login]    
