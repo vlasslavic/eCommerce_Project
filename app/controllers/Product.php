@@ -84,4 +84,27 @@ class Post extends \app\core\Controller{
 	
     }
 
+    public function addProduct(){
+
+        if(isset($_POST['action'])){
+                    $product = new \app\models\Product();
+                    
+                    $product = new \app\models\Post();
+                    $product = $product->getPub($publication_id);
+                    $product->profile_id = $profile->profile_id;
+                    $product->product_id = $publication_id;
+                    $product->caption = $_POST['caption'];
+                    $product->date_time = (new \DateTime())->format('Y-m-d H:i:s');
+                    $product->update();
+                    
+                header('location:'.URLROOT.'Product/index/?publication_id='.$publication_id.'?message=Success, your post was edited.');
+            
+        }
+        else{
+        $data = "a";
+        $this->view('Product/addProduct',$data);
+        }
+
+    }
+
 }

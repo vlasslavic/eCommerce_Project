@@ -45,7 +45,7 @@
             <li class="nav-item dropdown ">
               <a class=" nav-link dropdown-toggle text-decoration-none text-dark  fs-6 fw-bold" data-bs-toggle="dropdown"  role="button" aria-expanded="false">Products<a/>
               <ul class="dropdown-menu ">
-                <li><a class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-plus-circle-fill p-2"></i>Add Product</a></li>
+                <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Product/addProduct"><i class="bi bi-plus-circle-fill p-2"></i>Add Product</a></li>
                 <li><a class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-pen-fill p-2"></i>Modify Product</a></li>
                 
               </ul>
@@ -92,7 +92,10 @@
               </ul>
             </li> 
           ';}?>
+          
+          
           </ul>
+          
         </div>
         </div>
 </header>

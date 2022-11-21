@@ -42,6 +42,10 @@ if(isset($_GET['info'])){ ?>
 </div>
 <?php	}
 ?>
+<?php if((isset($data->isEnabled)?(!$data->isEnabled)And(isSellerLoggedIn()):FALSE) And !isset($_GET['info']) )
+    {echo '<div class="alert alert-warning headline text-center " role="alert">
+            Your profile is disabled! Users won\'t be able to see your awesome store.
+          </div>';}?>
 
 
 <main>
