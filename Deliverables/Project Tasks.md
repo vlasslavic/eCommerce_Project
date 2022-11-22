@@ -24,7 +24,7 @@ This document contains the plan of action, and is intended to be used as a task 
 |  User    | Check the status of the current service appointment (1 feature).                               |           |
 |  User    | Can check past service records. (1 feature).                                                   |           |
 |  User    | Search the product catalog (1 feature).                                                        |           |
-|  User    | See product details (1 feature).                                                               |           |
+|  User    | See product details (1 feature).                                                               |  Done     |
 |  User    | Add/delete/modify quantities for products to my shopping cart (3 features).                    |           |
 |  User    | Checkout my order (1 feature).                                                                 |           |
 
