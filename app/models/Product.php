@@ -20,10 +20,10 @@ class Product extends \app\core\Model{
 		return $STMT->fetchAll();
 	}
 
-	public function getAllProducts(){
+	public function getAllProducts($profile_id){
 		$SQL = "SELECT * FROM product WHERE profile_id=:profile_id ORDER BY product_id DESC";
 		$STMT = self::$_connection->prepare($SQL);
-		$STMT->execute(['profile_id'=>$this->profile_id]);
+		$STMT->execute(['profile_id'=>$profile_id]);
 		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Product');
 		return $STMT->fetchAll();
 	}
@@ -67,6 +67,15 @@ class Product extends \app\core\Model{
 		$SQL = "DELETE FROM product WHERE product_id=:product_id";
 		$STMT = self::$_connection->prepare($SQL);
 		$STMT->execute(['product_id'=>$this->product_id]);
+	}
+
+	public function searchRelated($searchTerm){
+		//get all newest first
+		$SQL = "SELECT * FROM product WHERE product_name LIKE :searchTerm ORDER BY in_stock DESC LIMIT 5";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['searchTerm'=>"%$searchTerm%"]);
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Product');
+		return $STMT->fetchAll();
 	}
 
 

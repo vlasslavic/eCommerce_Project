@@ -38,6 +38,7 @@ class User extends \app\core\Controller{
 						//Check if profile is created
 						if(isset($profile->profile_id)){
 							$_SESSION['profile_id'] = $profile->profile_id;
+							$_SESSION['profile_pic'] = $profile->picture;
 						}
 
 						// $_SESSION['posts'] = $posts;

@@ -36,7 +36,7 @@
                             <div class=" ">
                                 <label class="form-label text-white m-1" for="picture">
                                     <img alt="Change profile photo" class="form-control-file rounded-circle shadow" 
-                                        style="width: 5em; height: 5em; object-fit: cover;" id="pic_preview" src="<?php echo ''.URLROOT.'public/'?><?php echo isset($data->image)?'uploads/'.$data->image:'img/addPic.jpg'; ?>">
+                                        style="width: 5em; height: 5em; object-fit: cover;" id="pic_preview" src="<?php echo ''.URLROOT.'public/'?><?php echo (isset($data->image)And($data->image!=''))?'uploads/'.$data->image:'img/addPic.jpg'; ?>">
                                 </label>
                                 <input type="file" name="picture" id="picture" accept="image/gif, image/jpeg, image/png" class="form-control-file form-control d-none"  />
                             </div>

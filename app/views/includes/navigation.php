@@ -53,8 +53,9 @@
             <li class="nav-item dropdown ">
               <a class=" nav-link dropdown-toggle text-decoration-none text-dark  fs-6 fw-bold" data-bs-toggle="dropdown"  role="button" aria-expanded="false">Appointments<a/>
               <ul class="dropdown-menu ">
-                <li><a class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-plus-circle-fill p-2"></i>Add Service</a></li>
-                <li><a class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-pen-fill p-2"></i>Modify Appointments</a></li>
+                <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Service/addService"><i class="bi bi-plus-circle-fill p-2"></i>Add Service</a></li>
+                <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Service/list"><i class="bi bi-pen-fill p-2"></i>Modify Service</a></li>
+                <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Service/list"><i class="bi bi-calendar2-week-fill p-2"></i>My Appointments</a></li>
                 
               </ul>
             </li>
@@ -70,8 +71,8 @@
         ';}?>
         <?php if(isCustomerLoggedIn()){ echo'
             <li class="nav-item dropdown" name="Profile Pic">
-              <img alt="Image Placeholder" src="'.URLROOT.'public/img/account.jpg" class="rounded-circle shadow-4 nav-link dropdown-toggle " data-bs-toggle="dropdown"  role="button" aria-expanded="false""
-                style="width: 5em;" alt="Avatar" name="Profile Pic" />
+              <img alt="Image Placeholder" src="'.URLROOT.''.((isset($_SESSION['profile_pic']))?('public/uploads/'.$_SESSION['profile_pic']):'public/img/account.jpg').'" class="rounded-circle shadow-4 nav-link dropdown-toggle " data-bs-toggle="dropdown"  role="button" aria-expanded="false""
+                style="width: 5em; height: 5em; object-fit: cover;" alt="Avatar" name="Profile Pic" />
               <ul class="dropdown-menu ">
                 <li><a class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-person-circle p-2"></i>Profile</a></li>
                 <li><a class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-gear-fill p-2"></i>Settings</a></li>
@@ -81,9 +82,9 @@
             </li> 
           ';}?>
           <?php if(isSellerLoggedIn()){ echo'
-            <li class="nav-item dropdown" name="Profile Pic">
-              <img alt="Image Placeholder" src="'.URLROOT.'public/img/account.jpg" class="rounded-circle shadow-4 nav-link dropdown-toggle " data-bs-toggle="dropdown"  role="button" aria-expanded="false"
-                style="width: 5em;" alt="Avatar" name="Profile Pic" />
+            <li class="nav-item dropdown " name="Profile Pic">
+              <img alt="Image Placeholder" src="'.URLROOT.''.((isset($_SESSION['profile_pic']))?('public/uploads/'.$_SESSION['profile_pic']):'public/img/account.jpg').'" class="rounded-circle px-2  shadow-4 nav-link dropdown-toggle " data-bs-toggle="dropdown"  role="button" aria-expanded="false"
+                style="width: 5em; height: 5em; object-fit: cover;" alt="Avatar" name="Profile Pic" />
               <ul class="dropdown-menu ">
                 <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Profile/myStore"><i class="bi bi-person-circle p-2"></i>Profile</a></li>
                 <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Profile/settings"><i class="bi bi-gear-fill p-2"></i>Settings</a></li>

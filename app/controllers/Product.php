@@ -4,47 +4,18 @@ namespace app\controllers;
 class Product extends \app\core\Controller{
 
 
-	public function index(){
-        $publication_id = intval($_GET['publication_id']);
-        if(!isset($publication_id)){
-            header('location:'.URLROOT.'Main/index?error=Publication not found.');
-	
+	public function index($product_id){
+        if(!isset($product_id)){
+            $this->view('Main/index');
         }else{
-            if(isset($_POST['action'])){
-               if(isset($_POST['delete'])){
-                    $publication = new \app\models\Post();
-                    $publication->publication_id = $_POST['delete'];
-                    $publication->delete();
-                        header('location:'.URLROOT.'Main/index/');
-            }elseif(isset($_POST['comment']) And isLoggedIn()){
-
-
-
-                
-                $profile = new \app\models\Profile();
-                $profile = $profile->get( $_SESSION["user_id"]);
-                $comment = new \app\models\Comment();
-                $comment->profile_id = $profile->profile_id;
-                $comment->publication_id = $publication_id;
-                $comment->comment = $_POST['comment'];
-                $comment->date_time = (new \DateTime())->format('Y-m-d H:i:s');
-                $comment->insert();
-                    header('location:'.URLROOT.'Post/index/?publication_id='.$publication_id.'');
-            }
-            elseif(isset($_POST['deleteComment'])){
-                $comment = new \app\models\Comment();
-                $comment->comment_id = $_POST['deleteComment'];
-                $comment->delete();
-                    header('location:'.URLROOT.'Post/index/?publication_id='.$publication_id.'');
-            }else{
-                    header('location:'.URLROOT.'Post/index/?publication_id='.$publication_id.'?error=You don`t have the permission.');
-                }
-            }
-            else{
-            $data = $publication_id;
-			$this->view('Post/index',$data);}
-	    }
-	
+        $product = new \app\models\Product();
+		$product=$product->get($product_id);
+        $productRelated = new \app\models\Product();
+		$productRelated = $productRelated->searchRelated($product->product_name);
+        $data = $product;
+        $data->related=$productRelated;
+		    $this->view('Product/index',$data);
+        }
     }
 
     #[\app\filters\Login]
@@ -162,5 +133,13 @@ class Product extends \app\core\Controller{
         }
     }
     }
+
+    // public function search(){
+	// 	//To find interesting publications, as a person or user, I can search for captions by search terms.
+	// 	$publication = new \app\models\Publication();
+	// 	$publications = $publication->search($_GET['search_term']);
+	// 	$this->view('Main/index', $publications);
+	// }
+    
 
 }

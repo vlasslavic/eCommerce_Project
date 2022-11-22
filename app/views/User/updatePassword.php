@@ -16,7 +16,7 @@
                             <div class=" ">
                                 <label class="form-label text-white m-1" for="customFile2">
                                     <img alt="Change profile photo" class="form-control-file rounded-circle shadow"
-                                        style="width: 5em;" src="<?php echo''.URLROOT.'/public/img/account.jpg'?>">
+                                        style="width: 5em; height: 5em; object-fit: cover;" src="<?php echo''.URLROOT.((isset($_SESSION['profile_pic']))?('public/uploads/'.$_SESSION['profile_pic']):('public/img/account.jpg')).''?>">
 
                                 </label>
                                 <input type="file" disabled class="form-control-file form-control d-none" id="customFile2" />

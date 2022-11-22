@@ -17,8 +17,7 @@
           <tbody>
           <?php 
           $product = new \app\models\Product();
-          $product->profile_id=$_SESSION["profile_id"];
-          $product = $product->getAllProducts();
+          $product = $product->getAllProducts($_SESSION["profile_id"]);
           
           foreach ($product as $data) { 
                 echo'
@@ -44,7 +43,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">
-                                <h5>Are you sure you wnt to delete:</h5>
+                                <h5>Are you sure you want to delete:</h5>
                                 <h5>'.$data->product_name.'?</h5>
                                 <p>This action will erase permanently the product data and images. </p>
                               </div>

@@ -53,6 +53,7 @@ public function settings(){
 					if(!$filename==""){
 						unlink('public/uploads/'.$profile->picture.'');
 						$profile->picture = $filename;
+						$_SESSION['profile_pic'] = $profile->picture;
 						$profile->updateWithPicture();
 					}
 						

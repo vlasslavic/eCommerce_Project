@@ -19,8 +19,16 @@
                     <div class="info ms-5 my-auto">
                         <h3 class="text-black my-0"><?=$data->business_name ?></h3>
                         <div class="text-black-50 my-4">
-                            <span class="fw-bold ">23</span><span class="me-3"> services</span>
-                            <span class="ms-4 fw-bold">5</span><span> products</span>
+                            <?php $services= new \app\models\Service();
+                                $services = $services->getAllServices($_SESSION["profile_id"]);
+                                echo '<span class="fw-bold ">'.sizeof($services).'
+                                </span><span class="me-3"> '.(sizeof($services)>1?('services'):('service')).'</span>'; ?>
+                                  
+                            <?php $products= new \app\models\Product();
+                                $products = $products->getAllProducts($_SESSION["profile_id"]);  
+                                echo'<span class="ms-4 fw-bold">'.sizeof($products).'
+                                </span><span class="me-3"> '.(sizeof($products)>1?('products'):('product')).'</span>'; ?>
+                               
                         </div>
                         <p class="text-black-50 my-0"><?=$data->description ?></p>
 
@@ -64,22 +72,35 @@
                     id="products-tab-pane" role="tabpanel" aria-labelledby="products-tab" tabindex="0">
                         <div class="container pt-4 ">
                             <div class="row">
-                                <div  class="product col-lg-3 col-sm-6 col-12 mb-4">
+                                <?php 
+                                $products= new \app\models\Product();
+                                $products = $products->getAllProducts($_SESSION["profile_id"]);
+                                foreach ($products as $data) { 
+                                echo'
+                                    <div  class="product col-lg-3 col-sm-6 col-12 mb-4">
                                     <div class="card  card-product-grid shadow" >
-                                        <div class="img-wrap m-auto mt-3"> <img style="width: 100%; height: 17rem ; object-fit: cover;  overflow: hidden;" src="<?php echo ''.URLROOT.'public/'?><?php echo isset($data->picture)?'uploads/'.$data->picture:'img/account.jpg'; ?>"> </div>
+                                        <div class="img-wrap m-auto mt-3"> <img style="width: 100%; height: 17rem ; object-fit: cover;  overflow: hidden;" src="'.URLROOT.'public/'.((isset($data->image)And($data->image!=''))?'uploads/'.$data->image:'img/blank.jpg').'"> </div>
                                         <div class="info-wrap"> 
-                                            <p class="title m-3 text-center">Apple iPhone 13 Pro max 7.1" RAM 6GB 512GB Global</p>
+                                            <p class="title m-3 text-center">'.(isset($data->product_name)?$data->product_name:'Product Name').'</p>
                                             <hr class="m-0">
                                         </div>
                                         <div class="bottom-wrap m-3 mx-4 d-flex align-items-center flex">
-                                            <div class="price-wrap lh-sm text-start"> <strong class="price"> $39.50 </strong> <br>
-                                                <small class="text-muted">Only 4 left </small> </div>
+                                            <div class="price-wrap lh-sm text-start"> <strong class="price"> $'.(isset($data->sell_price)?$data->sell_price:'00.00').' </strong> <br>
+                                                <small class="text-muted">'.(isset($data->in_stock)?
+                                                                                (($data->in_stock<10)?
+                                                                                    ('Only '.$data->in_stock):
+                                                                                    ($data->in_stock))
+                                                                                :'0').' left </small> </div>
                                         
                                                 <a href="#" class=" btn btn-warning float-end ms-auto btn-sm"> Add to cart</a>
                                                 <!-- price-wrap.// -->
                                         </div> <!-- bottom-wrap.// -->
                                     </div> <!-- card // -->
                                 </div> <!-- col.// -->
+                                ';};
+                                ?>
+
+                                
                                 
                                 
                                 
@@ -91,10 +112,40 @@
                     </section>
 <!-- Product Section End -->
 <!-- Services Section Start -->
-                    <section class="padding-y p-4 tab-pane fade show active "
-                    id="services-tab-pane" role="tabpanel" aria-labelledby="services-tab" tabindex="0">
+                    <section class="padding-y p-4 tab-pane fade   "
+                    id="services-tab-pane" role="tabpanel" aria-labelledby="services-tab" tabindex="-1">
                         <div class="container pt-4 ">
                             <div class="row">
+
+                            <?php 
+                                $services= new \app\models\Service();
+                                $services = $services->getAllServices($_SESSION["profile_id"]);
+
+                                
+                                foreach ($services as $datas) { 
+                                    $dt = DateTime::createFromFormat('H:i:s', (isset($datas->duration)?($datas->duration):''));
+                                $hour = $dt->format('H');
+                                $minutes = $dt->format('i');
+                                echo'
+                                    <div  class="product col-lg-3 col-sm-6 col-12 mb-4">
+                                    <div class="card  card-product-grid shadow" >
+                                        
+                                        <div class="info-wrap"> 
+                                            <p class="title m-3 text-center">'.(isset($datas->service_name)?$datas->service_name:'Product Name').'</p>
+                                            <hr class="m-0">
+                                        </div>
+                                        <div class="bottom-wrap m-3 mx-4 d-flex align-items-center flex">
+                                            <div class="price-wrap lh-sm text-start"> <strong class="price"> $'.(isset($datas->service_price)?$datas->service_price:'00.00').' </strong> <br>
+                                                <small class="text-muted">'.$hour.'h '.$minutes.'min </small> </div>
+                                        
+                                                <a href="#" class=" btn btn-warning float-end ms-auto btn-sm">Schedule</a>
+                                                <!-- price-wrap.// -->
+                                        </div> <!-- bottom-wrap.// -->
+                                    </div> <!-- card // -->
+                                </div> <!-- col.// -->
+                                ';};
+                                ?>
+
                             </div>
                         </div>
                     </section>
