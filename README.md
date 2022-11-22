@@ -8,6 +8,9 @@ This is the repository for the group project of the **"BootstrapFTW"** team for 
 ## [Project Instructions](Project_2022A_420-411-VA_eCommerce.pdf)
 This file contains the guidelines and requirements for every deliverable, presentation and final product pertaining to this project.
 
+## [Agenda](https://github.com/vlasslavic/eCommerce_Project/blob/main/Deliverables/Project%20Tasks.md)
+This file contains a checklist for every feature, showing as status (nothing, Started or Done).
+
 ## [Deliverables](/Deliverables)
 This folder contains the files and folders that are required every couple of weeks from our teacher.
 
