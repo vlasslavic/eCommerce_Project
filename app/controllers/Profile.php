@@ -22,10 +22,7 @@ public function settings(){
 				$profile->seller_id = $_SESSION['seller_id'];
 				$profile->business_name = $_POST['business_name'];
 				$profile->description = $_POST['description'];
-				if(isset($_FILES['picture'])){
-					$filename = $this->saveFile($_FILES['picture']);
-					$profile->picture = $filename;
-				}
+				
 					
 
 				$profile->phone = $_POST['phone'];
@@ -33,14 +30,34 @@ public function settings(){
 				$profile->address = $_POST['address'];
 
 			if(!isset($_SESSION['profile_id'])){
+				if(isset($_FILES['picture'])){
+					$filename = $this->saveFile($_FILES['picture']);
+					$profile->picture = $filename;
+				}
 				$profile->insert();
 				$profile=$profile->get($_SESSION['seller_id']);
 				$_SESSION['profile_id'] = $profile->profile_id;
 				header('location:'.URLROOT.'Profile/settings');
 			}else{
+				$profile = $profile->getProfile($_SESSION['profile_id']);
+				$profile->business_name = $_POST['business_name'];
+				$profile->description = $_POST['description'];
+				$profile->phone = $_POST['phone'];
+				$profile->email = $_POST['business_email'];
+				$profile->address = $_POST['address'];
+				$profile->picture = $_POST['caption'];
+				if(empty($_FILES)){
+					$profile->update();
+				}elseif(!empty($_FILES)){
+					$filename = $this->saveFile($_FILES['picture']);
+					if(!$filename==""){
+						unlink('public/uploads/'.$profile->picture.'');
+						$profile->picture = $filename;
+						$profile->updateWithPicture();
+					}
+						
+				}
 				
-				$profile->profile_id = $_SESSION['profile_id'];
-				$profile->update(); 
 				header('location:'.URLROOT.'Profile/settings?message=Your profile has been updated!');
 				
 			}

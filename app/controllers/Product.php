@@ -1,7 +1,7 @@
 <?php
 namespace app\controllers;
 
-class Post extends \app\core\Controller{
+class Product extends \app\core\Controller{
 
 
 	public function index(){
@@ -88,23 +88,79 @@ class Post extends \app\core\Controller{
 
         if(isset($_POST['action'])){
                     $product = new \app\models\Product();
+                    $product->profile_id = ($_SESSION["profile_id"]);
+                    $product->product_name =$_POST['product_name'];
+                    $product->description = $_POST['description'];
+                    if(isset($_FILES['picture'])){
+                        $filename = $this->saveFile($_FILES['picture']);
+                        $product->image = $filename;
+                    }
+                    $product->in_stock = $_POST['in_stock'];
+                    $product->sell_price = $_POST['sell_price'];
+                    $product->cost_price = $_POST['cost_price'];
+                    $product->insert();
                     
-                    $product = new \app\models\Post();
-                    $product = $product->getPub($publication_id);
-                    $product->profile_id = $profile->profile_id;
-                    $product->product_id = $publication_id;
-                    $product->caption = $_POST['caption'];
-                    $product->date_time = (new \DateTime())->format('Y-m-d H:i:s');
-                    $product->update();
-                    
-                header('location:'.URLROOT.'Product/index/?publication_id='.$publication_id.'?message=Success, your post was edited.');
+                header('location:'.URLROOT.'Product/list/?message=Success, product Added.');
             
         }
         else{
         $data = "a";
-        $this->view('Product/addProduct',$data);
+        $this->view('Product/addProduct');
         }
 
+    }
+
+    public function list(){
+        $this->view('Product/list');
+    }
+
+    #[\app\filters\Login]
+	#[\app\filters\Profile]
+	public function delete($product_id){
+		//To avoid embarrassment, as a user, I can delete my publication.
+		$product = new \app\models\Product();
+		$product = $product->get($product_id);
+		if($product->profile_id == $_SESSION['profile_id']){
+			unlink('public/uploads/'.$product->image.'');
+			$product->delete();
+		}
+		header('location:'.URLROOT.'Product/list/?message=Success, product Deleted.');
+	}
+
+    #[\app\filters\Login]
+	#[\app\filters\Profile]
+	public function modifyProduct($product_id){
+        
+        if(isset($_POST['action'])){
+            $product = new \app\models\Product();
+            $product= $product->get($product_id);
+            $product->product_id= $product_id;
+            $product->product_name =$_POST['product_name'];
+            $product->description = $_POST['description'];
+            $product->in_stock = $_POST['in_stock'];
+            $product->sell_price = $_POST['sell_price'];
+            $product->cost_price = $_POST['cost_price'];
+            $product->image = $_POST['caption'];
+            if(empty($_FILES)){
+                $product->update();
+            }elseif(!empty($_FILES)){
+                $filename = $this->saveFile($_FILES['picture']);
+                if(!$filename==""){
+                    unlink('public/uploads/'.$product->image.'');
+                    $product->image = $filename;
+                }
+                    $product->updateWithImage();
+            }
+            
+            header('location:'.URLROOT.'Product/list/?message=Success, product Modified.');
+        }
+        else{
+        $product = new \app\models\Product();
+		$data = $product->get($product_id);
+		if($data->profile_id == $_SESSION['profile_id']){
+            $this->view('Product/modifyProduct',$data);
+        }
+    }
     }
 
 }

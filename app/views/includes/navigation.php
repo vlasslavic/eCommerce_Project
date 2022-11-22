@@ -37,7 +37,7 @@
        <ul class="nav nav-pills d-flex align-items-center">
         <?php if(isSellerLoggedIn()){echo '   
             <li class="nav-item">
-              <a class="nav-link text-decoration-none text-dark shadow-sm fs-6 fw-bold" aria-current="page" href="#">My Store</a>
+              <a class="nav-link text-decoration-none text-dark shadow-sm fs-6 fw-bold" aria-current="page" href="'.URLROOT.'Profile/myStore">My Store</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-decoration-none text-dark fs-6 fw-bold hover:" aria-current="page" href="#">Sales</a>
@@ -46,7 +46,7 @@
               <a class=" nav-link dropdown-toggle text-decoration-none text-dark  fs-6 fw-bold" data-bs-toggle="dropdown"  role="button" aria-expanded="false">Products<a/>
               <ul class="dropdown-menu ">
                 <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Product/addProduct"><i class="bi bi-plus-circle-fill p-2"></i>Add Product</a></li>
-                <li><a class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-pen-fill p-2"></i>Modify Product</a></li>
+                <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Product/list"><i class="bi bi-pen-fill p-2"></i>Modify Product</a></li>
                 
               </ul>
             </li>
@@ -88,7 +88,7 @@
                 <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Profile/myStore"><i class="bi bi-person-circle p-2"></i>Profile</a></li>
                 <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Profile/settings"><i class="bi bi-gear-fill p-2"></i>Settings</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a name="Logout" href="Main/logout" class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-door-open-fill p-2"></i>Logout</a></li>
+                <li><a name="Logout" href="'.URLROOT.'Main/logout" class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-door-open-fill p-2"></i>Logout</a></li>
               </ul>
             </li> 
           ';}?>

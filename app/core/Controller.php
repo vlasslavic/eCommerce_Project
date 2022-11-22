@@ -14,6 +14,8 @@ class Controller{
 		return new $modelName;
 	}
 
+
+
 	public function saveFile($file){
 		if(empty($file['tmp_name']))
 			return false;

@@ -44,12 +44,23 @@ class Profile extends \app\core\Model{
 						]);
 	}
 
-	public function update(){
+	public function updateWithPicture(){
 		$SQL = "UPDATE profile SET business_name=:business_name, description=:description, picture=:picture, phone=:phone, email=:email, address=:address WHERE profile_id=:profile_id";
 		$STMT = self::$_connection->prepare($SQL);
 		$STMT->execute(['business_name'=>$this->business_name,
                         'description'=>$this->description,
 						'picture'=>$this->picture,
+						'phone'=>$this->phone,
+						'email'=>$this->email,
+						'address'=>$this->address,
+						'profile_id'=>$this->profile_id]);
+	}
+
+	public function update(){
+		$SQL = "UPDATE profile SET business_name=:business_name, description=:description, phone=:phone, email=:email, address=:address WHERE profile_id=:profile_id";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['business_name'=>$this->business_name,
+                        'description'=>$this->description,
 						'phone'=>$this->phone,
 						'email'=>$this->email,
 						'address'=>$this->address,

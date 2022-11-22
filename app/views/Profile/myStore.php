@@ -72,7 +72,7 @@
                                             <hr class="m-0">
                                         </div>
                                         <div class="bottom-wrap m-3 mx-4 d-flex align-items-center flex">
-                                            <div class="price-wrap lh-sm "> <strong class="price"> $399.50 </strong> <br>
+                                            <div class="price-wrap lh-sm text-start"> <strong class="price"> $39.50 </strong> <br>
                                                 <small class="text-muted">Only 4 left </small> </div>
                                         
                                                 <a href="#" class=" btn btn-warning float-end ms-auto btn-sm"> Add to cart</a>

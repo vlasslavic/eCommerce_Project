@@ -1,74 +1,73 @@
 <?php
 namespace app\models;
 
-class Profile extends \app\core\Model{
+class Product extends \app\core\Model{
 	
-	public function get($seller_id){
-		$SQL = "SELECT * FROM profile WHERE seller_id LIKE :seller_id";
+	public function get($product_id){
+		$SQL = "SELECT * FROM product WHERE product_id=:product_id";
 		$STMT = self::$_connection->prepare($SQL);
-		$STMT->execute(['seller_id'=>$seller_id]);
-		//run some code to return the results
-		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Profile');
+		$STMT->execute(['product_id'=>$product_id]);
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Product');
 		return $STMT->fetch();
 	}
 
 	public function getAll(){
 		//get all newest first
-		$SQL = "SELECT * FROM profile ORDER BY profile_id DESC";
+		$SQL = "SELECT * FROM product ORDER BY profile_id DESC";
 		$STMT = self::$_connection->prepare($SQL);
 		$STMT->execute();
-		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Profile');
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Product');
 		return $STMT->fetchAll();
 	}
 
-	public function getProfile($profile_id){
-		$SQL = "SELECT * FROM profile WHERE profile_id LIKE :profile_id";
+	public function getAllProducts(){
+		$SQL = "SELECT * FROM product WHERE profile_id=:profile_id ORDER BY product_id DESC";
 		$STMT = self::$_connection->prepare($SQL);
-		$STMT->execute(['profile_id'=>$profile_id]);
-		//run some code to return the results
-		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Profile');
-		return $STMT->fetch();
+		$STMT->execute(['profile_id'=>$this->profile_id]);
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Product');
+		return $STMT->fetchAll();
 	}
 	
 	public function insert(){
-		$SQL = "INSERT INTO profile (seller_id, business_name, description, picture, phone, email, address, isEnabled) VALUES (:seller_id, :business_name, :description, :picture, :phone, :email, :address, :isEnabled)";
+		$SQL = "INSERT INTO product (profile_id, product_name, description, image, in_stock, sell_price, cost_price) VALUES (:profile_id, :product_name, :description, :image, :in_stock, :sell_price, :cost_price)";
 		$STMT = self::$_connection->prepare($SQL);
-		$STMT->execute(['seller_id'=>$this->seller_id,
-						'business_name'=>$this->business_name,
+		$STMT->execute(['profile_id'=>$this->profile_id,
+						'product_name'=>$this->product_name,
                         'description'=>$this->description,
-						'picture'=>$this->picture,
-						'phone'=>$this->phone,
-						'email'=>$this->email,
-						'address'=>$this->address,
-						'isEnabled'=>1,
+						'image'=>$this->image,
+						'in_stock'=>$this->in_stock,
+						'sell_price'=>$this->sell_price,
+						'cost_price'=>$this->cost_price,
 						]);
 	}
 
 	public function update(){
-		$SQL = "UPDATE profile SET business_name=:business_name, description=:description, picture=:picture, phone=:phone, email=:email, address=:address WHERE profile_id=:profile_id";
+		$SQL = "UPDATE product SET product_name=:product_name, description=:description,  in_stock=:in_stock, sell_price=:sell_price, cost_price=:cost_price WHERE product_id=:product_id";
 		$STMT = self::$_connection->prepare($SQL);
-		$STMT->execute(['business_name'=>$this->business_name,
-                        'description'=>$this->description,
-						'picture'=>$this->picture,
-						'phone'=>$this->phone,
-						'email'=>$this->email,
-						'address'=>$this->address,
-						'profile_id'=>$this->profile_id]);
+		$STMT->execute(['product_id'=>$this->product_id,
+						'product_name'=>$this->product_name,
+						'description'=>$this->description,
+						'in_stock'=>$this->in_stock,
+						'sell_price'=>$this->sell_price,
+						'cost_price'=>$this->cost_price,]);
+	}
+	public function updateWithImage(){
+		$SQL = "UPDATE product SET product_name=:product_name, description=:description, image=:image, in_stock=:in_stock, sell_price=:sell_price, cost_price=:cost_price WHERE product_id=:product_id";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['product_id'=>$this->product_id,
+						'product_name'=>$this->product_name,
+						'description'=>$this->description,
+						'image'=>$this->image,
+						'in_stock'=>$this->in_stock,
+						'sell_price'=>$this->sell_price,
+						'cost_price'=>$this->cost_price,]);
 	}
 
-	public function changeVisibility(){
-		$SQL = "UPDATE profile SET isEnabled=:isEnabled WHERE profile_id=:profile_id";
+	public function delete(){
+		$SQL = "DELETE FROM product WHERE product_id=:product_id";
 		$STMT = self::$_connection->prepare($SQL);
-		$STMT->execute(['isEnabled'=>$this->isEnabled,
-						'profile_id'=>$this->profile_id]);
+		$STMT->execute(['product_id'=>$this->product_id]);
 	}
-
-	
-	
-
-
-	
-
 
 
 	
