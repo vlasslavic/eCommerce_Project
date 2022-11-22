@@ -20,12 +20,12 @@
                         <h3 class="text-black my-0"><?=$data->business_name ?></h3>
                         <div class="text-black-50 my-4">
                             <?php $services= new \app\models\Service();
-                                $services = $services->getAllServices($_SESSION["profile_id"]);
+                                $services = $services->getAllServices($data->profile_id);
                                 echo '<span class="fw-bold ">'.sizeof($services).'
                                 </span><span class="me-3"> '.(sizeof($services)>1?('services'):('service')).'</span>'; ?>
                                   
                             <?php $products= new \app\models\Product();
-                                $products = $products->getAllProducts($_SESSION["profile_id"]);  
+                                $products = $products->getAllProducts($data->profile_id);  
                                 echo'<span class="ms-4 fw-bold">'.sizeof($products).'
                                 </span><span class="me-3"> '.(sizeof($products)>1?('products'):('product')).'</span>'; ?>
                                
@@ -71,26 +71,28 @@
                     <section class="padding-y p-4 tab-pane fade show active "
                     id="products-tab-pane" role="tabpanel" aria-labelledby="products-tab" tabindex="0">
                         <div class="container pt-4 ">
-                            <div class="row">
+                            <div class="row align-content-center">
                                 <?php 
                                 $products= new \app\models\Product();
-                                $products = $products->getAllProducts($_SESSION["profile_id"]);
-                                foreach ($products as $data) { 
+                                $products = $products->getAllProducts($data->profile_id);
+                                foreach ($products as $datae) { 
                                 echo'
-                                    <div  class="product col-lg-3 col-sm-6 col-12 mb-4">
-                                    <a class="text-decoration-none text-black " href="'.URLROOT.'Product/index/'.$data->product_id.'">
-                                    <div class="card  card-product-grid shadow" >
-                                        <div class="img-wrap m-auto mt-3"> <img style="width: 100%; height: 17rem ; object-fit: cover;  overflow: hidden;" src="'.URLROOT.'public/'.((isset($data->image)And($data->image!=''))?'uploads/'.$data->image:'img/blank.jpg').'"> </div>
-                                        <div class="info-wrap"> 
-                                            <p class="title m-3 text-center">'.(isset($data->product_name)?$data->product_name:'Product Name').'</p>
+                                    <div  class="product producto col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
+                                    <a class="text-decoration-none text-black " href="'.URLROOT.'Product/index/'.$datae->product_id.'">
+                                    <div class="card  card-product-grid shadow " style="min-width: 200px" >
+                                        <div class="card-img-top"> <img class="card-img-top"  style="width: 100%; height: 17rem ; object-fit: cover;  overflow: hidden;" src="'.URLROOT.'public/'.((isset($datae->image)And($datae->image!=''))?'uploads/'.$datae->image:'img/blank.jpg').'" alt="...">
+                                        </div>
+                                        <div class="info-wrap "> 
+                                            <div class="title m-3  text-center" style="height: 3em; overflow: hidden;"><h5>
+                                            '.(isset($datae->product_name)?$datae->product_name:'Product Name').'</h5></div>
                                             <hr class="m-0">
                                         </div>
-                                        <div class="bottom-wrap m-3 mx-4 d-flex align-items-center flex">
-                                            <div class="price-wrap lh-sm text-start"> <strong class="price"> $'.(isset($data->sell_price)?$data->sell_price:'00.00').' </strong> <br>
-                                                <small class="text-muted">'.(isset($data->in_stock)?
-                                                                                (($data->in_stock<10)?
-                                                                                    ('Only '.$data->in_stock):
-                                                                                    ($data->in_stock))
+                                        <div class="bottom-wrap m-3 mx-4 d-flex align-items-center flex" style="height: 3em; overflow: hidden;">
+                                            <div class="price-wrap lh-sm text-start"> <strong class="price"> $'.(isset($datae->sell_price)?$datae->sell_price:'00.00').' </strong> <br>
+                                                <small class="text-muted">'.(isset($datae->in_stock)?
+                                                                                (($datae->in_stock<10)?
+                                                                                    ('Only '.$datae->in_stock):
+                                                                                    ($datae->in_stock))
                                                                                 :'0').' left </small> </div>
                                         
                                                 <a href="#" class=" btn btn-warning float-end ms-auto btn-sm"> Add to cart</a>
@@ -105,7 +107,11 @@
                                 
                                 
                                 
-                                
+                        <div class='d-flex'>
+                            <button id="loadMore" type="button" class="btn btn-warning btn-lg rounded-3 shadow mx-auto mt-5" >
+                                Load More
+                            </button>
+                        </div>
                                 
                             </div>
 
@@ -121,7 +127,7 @@
 
                             <?php 
                                 $services= new \app\models\Service();
-                                $services = $services->getAllServices($_SESSION["profile_id"]);
+                                $services = $services->getAllServices($data->profile_id);
 
                                 
                                 foreach ($services as $datas) { 
@@ -158,6 +164,20 @@
     </div>
 
 
-
+        
+   <script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+<script src ="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"> </script>
+<script>
+  $(document).ready(function () {
+  $(".producto").slice(0, 8).show();
+  $("#loadMore").on("click", function(e){
+    e.preventDefault();
+    $(".producto:hidden").slice(0, 4).slideDown();
+    if ($(".producto:hidden").length == 0) {
+      $("#loadMore").text("No Content").addClass("noContent");
+    }
+  });
+  })
+</script>
 
 <?php require APPROOT . '/views/includes/footer.php'?>

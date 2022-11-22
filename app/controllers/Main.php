@@ -35,6 +35,10 @@ class Main extends \app\core\Controller{
 			header('location:'.URLROOT.'User/index?error=You need an account in order to post comments.');
 			}
 		}else{
+			$product = new \app\models\Product();
+			$data = $product;
+			$product = $product->getAll();
+			$data->products=$product;
 			if(isset($data)){
 				$this->view('Main/index',$data);
 			}else{
@@ -48,6 +52,13 @@ class Main extends \app\core\Controller{
 		$publication = new \app\models\Post();
 		$data = $publication->search($_GET['search_term']);
 		$this->view('Main/index', $data);
+	}
+
+	public function catalog(){
+		//To find interesting publications, as a person or user, I can search for captions by search terms.
+		$product = new \app\models\Product();
+		$data = $product->getAll();
+		$this->view('Main/catalog', $data);
 	}
 	
 

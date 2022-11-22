@@ -1,27 +1,22 @@
+
 <?php require  APPROOT . '/views/includes/header.php'?>
+<header class="bg-dark py-5 shadow-lg">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Browse our Catalog</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Here you can find everithing you need (or not)</p>
+                </div>
+            </div>
+        </header>
 
-<div class="py-5 d-flex justify-content-center bg-black bg-opacity-75">
-    <img alt="Change profile photo" 
-        style="width: 45%; object-fit: cover;" id="pic_preview" 
-        src="<?php echo ''.URLROOT.''?>public/img/car.png">
-    <h1 class="w-25 text-center text-white ms-5 my-auto">Experience the all-in solution for your car. </h1>
-</div>
-<div style="height: 2rem;
-                background-color: rgba(0, 0, 0, .1);
-                border: solid rgba(0, 0, 0, .15);
-                border-width: 1px 0;
-                box-shadow: inset 0 0.5em 1.5em rgb(0 0 0 / 10%), inset 0 0.125em 0.5em rgb(0 0 0 / 15%);"> 
-    </div>
-
-    <section class="py-5">
-            <div class="container px-4 px-lg-5 mt-2">
-                <h1 class="mb-5">Some products from our Catalog:</h1>
+<section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center product-container">
                
                 <?php 
-                if(isset($data->products)){
+                if(isset($data)){
                     
-                foreach ($data->products as $datas) {
+                foreach ($data as $datas) {
                 echo'
                 <div  class="product producto col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
                 <a class="text-decoration-none text-black " href="'.URLROOT.'Product/index/'.$datas->product_id.'">
@@ -52,9 +47,9 @@
                 </div>
             </div>
             <div class='d-flex'>
-            <a href="<?php echo''.URLROOT.'Main/catalog'?>" id="loadMore" type="button" class="btn btn-warning btn-lg rounded-3 shadow mx-auto mt-5" >
-                Go to Catalog
-            </a>
+            <button id="loadMore" type="button" class="btn btn-warning btn-lg rounded-3 shadow mx-auto mt-5" >
+                Load More
+            </button>
             </div>
         </section>
         
@@ -64,10 +59,16 @@
 <script src ="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"> </script>
 <script>
   $(document).ready(function () {
-  $(".producto").slice(0, 4).show();
+  $(".producto").slice(0, 8).show();
+  $("#loadMore").on("click", function(e){
+    e.preventDefault();
+    $(".producto:hidden").slice(0, 8).slideDown();
+    if ($(".producto:hidden").length == 0) {
+      $("#loadMore").text("No Content").addClass("noContent");
+    }
+  });
   })
 </script>
 
-                                
-<?php require APPROOT . '/views/includes/footer.php'; ?>
-                                    
+
+        <?php require APPROOT . '/views/includes/footer.php'; ?>

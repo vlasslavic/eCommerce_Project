@@ -1,3 +1,9 @@
+<div style="height: 2rem;
+                background-color: rgba(0, 0, 0, .1);
+                border: solid rgba(0, 0, 0, .15);
+                border-width: 1px 0;
+                box-shadow: inset 0 0.5em 1.5em rgb(0 0 0 / 10%), inset 0 0.125em 0.5em rgb(0 0 0 / 15%);"> 
+    </div>
 </main>
 <footer class="" >
     <div class=" my-4 d-flex justify-content-center">

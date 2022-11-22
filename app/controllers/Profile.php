@@ -3,15 +3,25 @@ namespace app\controllers;
 
 class Profile extends \app\core\Controller{
 	
-#[\app\filters\Profile]    
+    
 public function myStore(){
 	$profile = new \app\models\Profile();
-		if(isset($_SESSION["profile_id"])){
+	$profile_id = intval($_GET['profile_id']);
+        
+		if(isset($profile_id)){
+			$data = $profile->getProfile($profile_id);
+			$this->view('/Profile/myStore',$data);
+
+		}
+		 else if(isset($_SESSION["profile_id"])){
             $data = $profile->get($_SESSION["seller_id"]);
             $this->view('/Profile/myStore',$data);
 			
-        }else{
-		    $this->view('/Profile/myStore');}
+        }
+		else{
+			header('location:'.URLROOT.'Main/index?error=Profile not found.');
+			
+		}
 }
 
 #[\app\filters\Login]    

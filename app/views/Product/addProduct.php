@@ -38,7 +38,7 @@
                                     <img alt="Change profile photo" class="form-control-file rounded-circle shadow"
                                         style="width: 5em; height: 5em; object-fit: cover;" id="pic_preview" src="<?php echo ''.URLROOT.'public/'?><?php echo isset($data->picture)?'uploads/'.$data->picture:'img/addPic.jpg'; ?>">
                                 </label>
-                                <input type="file" name="picture" id="picture" class="form-control-file form-control d-none"  />
+                                <input type="file" accept="image/gif, image/jpeg, image/png" name="picture" id="picture" class="form-control-file form-control d-none"  />
                             </div>
                         <!-- </form> -->
                     </div>
