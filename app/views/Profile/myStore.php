@@ -139,14 +139,14 @@
                                     <div class="card  card-product-grid shadow" >
                                         
                                         <div class="info-wrap"> 
-                                            <p class="title m-3 text-center">'.(isset($datas->service_name)?$datas->service_name:'Product Name').'</p>
+                                            <h4 class="title m-3 text-center">'.(isset($datas->service_name)?$datas->service_name:'Product Name').'</h4>
                                             <hr class="m-0">
                                         </div>
                                         <div class="bottom-wrap m-3 mx-4 d-flex align-items-center flex">
                                             <div class="price-wrap lh-sm text-start"> <strong class="price"> $'.(isset($datas->service_price)?$datas->service_price:'00.00').' </strong> <br>
                                                 <small class="text-muted">'.$hour.'h '.$minutes.'min </small> </div>
                                         
-                                                <a href="#" class=" btn btn-warning float-end ms-auto btn-sm">Schedule</a>
+                                                <a href="#" class=" btn btn-warning float-end ms-auto btn-md">Schedule</a>
                                                 <!-- price-wrap.// -->
                                         </div> <!-- bottom-wrap.// -->
                                     </div> <!-- card // -->

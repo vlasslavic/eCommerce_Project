@@ -20,6 +20,15 @@ class Service extends \app\core\Model{
 		return $STMT->fetchAll();
 	}
 
+	public function getAllId(){
+		//get all newest first
+		$SQL = "SELECT service_id FROM service ORDER BY service_id DESC";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute();
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Service');
+		return $STMT->fetchAll();
+	}
+
 	public function getAllServices($profile_id){
 		$SQL = "SELECT * FROM service WHERE profile_id=:profile_id ORDER BY service_id DESC";
 		$STMT = self::$_connection->prepare($SQL);

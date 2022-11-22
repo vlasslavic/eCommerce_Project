@@ -6,18 +6,18 @@ class Profile extends \app\core\Controller{
     
 public function myStore(){
 	$profile = new \app\models\Profile();
-	$profile_id = intval($_GET['profile_id']);
-        
-		if(isset($profile_id)){
-			$data = $profile->getProfile($profile_id);
-			$this->view('/Profile/myStore',$data);
+	if(isset($_GET['profile_id'])){$profile_id = intval($_GET['profile_id']);}
+	
+	if(!isset($_SESSION["profile_id"]) And isset($profile_id)){
+		$data = $profile->getProfile($profile_id);
+		$this->view('/Profile/myStore',$data);
 
+	}else if(isset($_SESSION["profile_id"])){
+			$data = $profile->getProfile($_SESSION["profile_id"]);
+			$this->view('/Profile/myStore',$data);
+		
 		}
-		 else if(isset($_SESSION["profile_id"])){
-            $data = $profile->get($_SESSION["seller_id"]);
-            $this->view('/Profile/myStore',$data);
-			
-        }
+		  
 		else{
 			header('location:'.URLROOT.'Main/index?error=Profile not found.');
 			

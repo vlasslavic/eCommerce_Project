@@ -19,6 +19,16 @@ class Product extends \app\core\Model{
 		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Product');
 		return $STMT->fetchAll();
 	}
+	
+
+	public function getAllId(){
+		//get all newest first
+		$SQL = "SELECT product_id FROM product ORDER BY profile_id DESC";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute();
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Product');
+		return $STMT->fetchAll();
+	}
 
 	public function getAllProducts($profile_id){
 		$SQL = "SELECT * FROM product WHERE profile_id=:profile_id ORDER BY product_id DESC";

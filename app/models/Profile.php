@@ -21,6 +21,15 @@ class Profile extends \app\core\Model{
 		return $STMT->fetchAll();
 	}
 
+	public function getAllId(){
+		//get all newest first
+		$SQL = "SELECT profile_id FROM profile ORDER BY profile_id DESC";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute();
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Profile');
+		return $STMT->fetchAll();
+	}
+
 	public function getProfile($profile_id){
 		$SQL = "SELECT * FROM profile WHERE profile_id LIKE :profile_id";
 		$STMT = self::$_connection->prepare($SQL);

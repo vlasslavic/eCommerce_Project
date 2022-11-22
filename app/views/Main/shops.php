@@ -3,8 +3,8 @@
 <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Browse our Catalog</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">Here you can find everithing you need (or not)</p>
+                    <h1 class="display-4 fw-bolder">Businesses Established</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Here are the businesses that decided to establish their presence on our platform.</p>
                 </div>
             </div>
         </header>
@@ -19,24 +19,19 @@
                 foreach ($data as $datas) {
                 echo'
                 <div  class="product producto col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
-                <a class="text-decoration-none text-black " href="'.URLROOT.'Product/index/'.$datas->product_id.'">
+                <a class="text-decoration-none text-black " href="'.URLROOT.'Profile/myStore?profile_id='.$datas->profile_id.'">
                 <div class="card  card-product-grid shadow" >
-                    <div class="card-img-top"> <img class="card-img-top"  style="width: 100%; height: 17rem ; object-fit: cover;  overflow: hidden;" src="'.URLROOT.'public/'.((isset($datas->image)And($datas->image!=''))?'uploads/'.$datas->image:'img/blank.jpg').'" alt="...">
+                    <div class="card-img-top"> <img class="card-img-top rounded-circle p-4"  style="width: 100%; height: 17rem; object-fit: cover;  overflow: hidden;" src="'.URLROOT.'public/'.((isset($datas->picture)And($datas->picture!=''))?'uploads/'.$datas->picture:'img/blank.jpg').'" alt="...">
                     </div>
                     <div class="info-wrap "> 
                         <div class="title m-3  text-center" style="height: 3em; overflow: hidden;"><h5>
-                        '.(isset($datas->product_name)?$datas->product_name:'Product Name').'</h5></div>
+                        '.(isset($datas->business_name)?$datas->business_name:'Profile Name').'</h5></div>
                         <hr class="m-0">
                     </div>
-                    <div class="bottom-wrap m-3 mx-4 d-flex align-items-center flex" style="height: 3em; overflow: hidden;">
-                        <div class="price-wrap lh-sm text-start"> <strong class="price"> $'.(isset($datas->sell_price)?$datas->sell_price:'00.00').' </strong> <br>
-                            <small class="text-muted">'.(isset($datas->in_stock)?
-                                                            (($datas->in_stock<10)?
-                                                                ('Only '.$datas->in_stock):
-                                                                ($datas->in_stock))
-                                                            :'0').' left </small> </div>
+                    <div class="bottom-wrap m-3 mx-auto d-flex align-items-center flex" style="height: 3em; overflow: hidden;">
+                        
                     
-                            <a href="#" class=" btn btn-warning float-end ms-auto btn-sm"> Add to cart</a>
+                            <a href="'.URLROOT.'Profile/myStore?profile_id='.$datas->profile_id.'" class=" btn btn-warning btn-lg ms-auto ">View Profile</a>
                             <!-- price-wrap.// -->
                     </div> <!-- bottom-wrap.// -->
                 </div> <!-- card // -->

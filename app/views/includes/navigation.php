@@ -9,9 +9,9 @@
             <?php $url =  "{$_SERVER['REQUEST_URI']}";
             $escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
             echo'
-          <li><a href="'.URLROOT.'Main/index" name="Home" class="nav-link text-decoration-none p-2 mx-2 '.((($escaped_url=="/") Or (str_contains($escaped_url, "/Main")))?'bg-warning text-black active':'text-white').'">Home</a></li>
-          <li><a href="'.URLROOT.'Main/catalog" class="nav-link text-decoration-none p-2 mx-2 '.((str_contains($escaped_url, "/Account"))?'bg-warning text-black active':'text-white').'">Catalog</a></li>
-          <li><a href="#" class="nav-link text-decoration-none p-2 mx-2 '.((str_contains($escaped_url, "/Shops"))?'bg-warning text-black active':'text-white').'">Shops</a></li>
+          <li><a href="'.URLROOT.'Main/index" name="Home" class="nav-link text-decoration-none p-2 mx-2 '.(str_contains($escaped_url, "/index")?'bg-warning text-black active':'text-white').'">Home</a></li>
+          <li><a href="'.URLROOT.'Main/catalog" class="nav-link text-decoration-none p-2 mx-2 '.((str_contains($escaped_url, "/catalog"))?'bg-warning text-black active':'text-white').'">Catalog</a></li>
+          <li><a href="'.URLROOT.'Main/shops" class="nav-link text-decoration-none p-2 mx-2 '.((str_contains($escaped_url, "/shops"))?'bg-warning text-black active':'text-white').'">Shops</a></li>
           <li><a href="#" class="nav-link text-decoration-none p-2 mx-2 '.((str_contains($escaped_url, "/FAQs"))?'bg-warning text-black active':'text-white').'">FAQs</a></li>
           <li><a href="'.URLROOT.'About/index'.'" class="nav-link text-decoration-none p-2 mx-2 '.((str_contains($escaped_url, "/Main/about"))?'bg-warning text-black active':'text-white').'">About</a></li>
           

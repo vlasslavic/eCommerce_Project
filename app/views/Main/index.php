@@ -13,9 +13,104 @@
                 box-shadow: inset 0 0.5em 1.5em rgb(0 0 0 / 10%), inset 0 0.125em 0.5em rgb(0 0 0 / 15%);"> 
     </div>
 
+
+    <div class="container ps-5 py-5 " id="hanging-icons">
+        <h1 class="pb-3 border-bottom">Why choosing us?</h1>
+        <p>Because numbers talk, take a look by yourself:</p>
+        <div class="ms-5 ps-3">
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3 ">
+            
+            <div class="col d-flex align-items-start">
+                <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
+                </div>
+                <div class="text-center">
+                <h2 class="text-center"><i class="bi bi-tags-fill me-3"></i>
+                    <?php $product= new \app\models\Product();
+                            $product = $product->getAllId();
+                        
+                        echo''.sizeof($product).'';?>
+                </h2>
+                <p>Products Available</p>
+                
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#cpu-fill"></use></svg>
+                </div>
+                <div class="text-center">
+                <h2 class="text-center"><i class="bi bi-ui-radios me-3"></i>
+                    <?php $service= new \app\models\Service();
+                            $service = $service->getAllId();
+                        echo''.sizeof($service).'';?>
+                </h2>
+                <p>Services Available</p>
+                
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#tools"></use></svg>
+                </div>
+                <div>
+                <h2 class="text-center"><i class="bi bi-people-fill me-3"></i>
+                    <?php $profile= new \app\models\Profile();
+                            $profile = $profile->getAllId();
+                            
+                        echo''.sizeof($profile).'';?>
+                </h2>
+                <p>Registered Shops</p>
+                
+                </div>
+            </div>
+        
+        </div>
+
+        <div class="row g-4 pt-2 pb-5 row-cols-1 row-cols-lg-3 ms-2">
+            <div class="col d-flex align-items-start">
+                <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
+                </div>
+                <div class="text-center">
+                <h2 class="text-center"><i class="bi bi-bar-chart-fill me-3"></i>12</h2>
+                <p>Products Sold</p>
+                
+                </div>
+            </div>
+            <div class="col d-flex align-items-start ms-n2">
+                <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#cpu-fill"></use></svg>
+                </div>
+                <div>
+                <h2 class="text-center"><i class="bi bi-check-circle-fill me-3"></i>3</h2>
+                <p class="text-center mb-0">Appointments</plass=>
+                <p class="text-center mt-0">Done</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#tools"></use></svg>
+                </div>
+                <div>
+                <h2 class="text-center"><i class="bi bi-check-circle-fill me-3"></i>12</h2>
+                <p>Registered Cars</p>
+                
+                </div>
+            </div>
+        </div>
+        </div>
+  </div>
+  <div style="height: 2rem;
+                background-color: rgba(0, 0, 0, .1);
+                border: solid rgba(0, 0, 0, .15);
+                border-width: 1px 0;
+                box-shadow: inset 0 0.5em 1.5em rgb(0 0 0 / 10%), inset 0 0.125em 0.5em rgb(0 0 0 / 15%);"> 
+    </div>
+    <!-- Catalog Preview -->
     <section class="py-5">
             <div class="container px-4 px-lg-5 mt-2">
-                <h1 class="mb-5">Some products from our Catalog:</h1>
+                <h1 class="mb-5 pb-3 border-bottom">Some products from our Catalog:</h1>
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center product-container">
                
                 <?php 
