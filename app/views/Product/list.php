@@ -22,11 +22,13 @@
           foreach ($product as $data) { 
                 echo'
                 <tr class="text-center">
+                    
                     <td class="text-center">'.$data->product_id.'</td>
-                    <td >'.$data->product_name.'</td>
+                    <td ><a class="text-decoration-none text-secondary " href="'.URLROOT.'Product/index/'.$data->product_id.'">'.$data->product_name.'</a></td>
                     <td>'.$data->in_stock.' pcs.</td>
                     <td>$'.$data->sell_price.'</td>
                     <td>$'.$data->cost_price.'</td>
+                    
                     <td class="mx-auto ">
                         <span class="me-4"><a class="btn btn-warning px-4"  href="'.URLROOT.'Product/modifyProduct/'.$data->product_id.'">Edit</a></span>
                         <span class="" ><!-- Button trigger modal -->
@@ -56,8 +58,9 @@
                         </div>
                                 
                         </span>
-
+                      
                     </td>
+                    
                 </tr>
                 '; } ?>
            

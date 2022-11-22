@@ -5,16 +5,20 @@
                 <div class="row gx-4 gx-lg-5 align-items-center">
                     <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="<?php echo ''.URLROOT.'public/'?><?php echo (isset($data->image)And($data->image!=''))?'uploads/'.$data->image:'img/addPic.jpg'; ?>" alt="..." /></div>
                     <div class="col-md-6">
-                        <div class="small mb-1"><?php echo''.(isset($data->in_stock)?((($data->in_stock<10)?
-                                                                                    ('Only '.$data->in_stock):
-                                                                                    ($data->in_stock)).(($data->in_stock<10)?(' left'):(' available')))
-                                                                                :'0').''; ?>  </div>
+                        <div class=" mb-1"><?php $profile= new \app\models\Profile();
+                            $profile = $profile->getProfile($data->profile_id);
+                        
+                        echo'<a class="text-decoration-none text-secondary fw-bold" href="'.URLROOT.'Profile/myStore?profile_id='.$profile->profile_id.'">'. $profile->business_name.'</a>'; ?>  </div>
                         <h1 class="display-5 fw-bolder"><?php echo isset($data->product_name)?$data->product_name:'Product Name' ?></h1>
                         <div class="fs-5 mb-5">
                             <span class="text-decoration-line-through">$<?php echo ''.(isset($data->sell_price)?$data->sell_price*1.15:'00.00').'';?></span>
                             <span>$<?php echo ''.(isset($data->sell_price)?$data->sell_price:'00.00').'';?></span>
                         </div>
                         <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?</p>
+                        <div class="mb-1"><?php echo''.(isset($data->in_stock)?((($data->in_stock<10)?
+                                                                                    ('Only '.$data->in_stock):
+                                                                                    ($data->in_stock)).(($data->in_stock<10)?(' left'):(' available')))
+                                                                                :'0').''; ?>  </div>
                         <div class="d-flex">
                             <input required class="form-control text-center me-3" id="inputQuantity" type="number" value="1" min="1" max="<?php echo ''.(isset($data->in_stock)?($data->in_stock):0).'';?>" style="max-width: 4rem" />
                             <button class="btn btn-outline-dark flex-shrink-0" type="button">
@@ -39,6 +43,7 @@
                                 if($related->product_id!=$data->product_id){
                                 echo'
                                 <div  class="product col-lg-3 col-sm-6 col-12 mb-4">
+                                <a class="text-decoration-none text-secondary " href="'.URLROOT.'Product/index/'.$related->product_id.'">
                                 <div class="card  card-product-grid shadow" >
                                     <div class="img-wrap m-auto mt-3"> <img style="width: 100%; height: 17rem ; object-fit: cover;  overflow: hidden;" src="'.URLROOT.'public/'.((isset($related->image)And($related->image!=''))?'uploads/'.$related->image:'img/blank.jpg').'"> </div>
                                     <div class="info-wrap"> 
@@ -57,6 +62,7 @@
                                             <!-- price-wrap.// -->
                                     </div> <!-- bottom-wrap.// -->
                                 </div> <!-- card // -->
+                                </a>
                             </div> <!-- col.// -->
                             ';};}}?>
                     

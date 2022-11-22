@@ -78,6 +78,7 @@
                                 foreach ($products as $data) { 
                                 echo'
                                     <div  class="product col-lg-3 col-sm-6 col-12 mb-4">
+                                    <a class="text-decoration-none text-black " href="'.URLROOT.'Product/index/'.$data->product_id.'">
                                     <div class="card  card-product-grid shadow" >
                                         <div class="img-wrap m-auto mt-3"> <img style="width: 100%; height: 17rem ; object-fit: cover;  overflow: hidden;" src="'.URLROOT.'public/'.((isset($data->image)And($data->image!=''))?'uploads/'.$data->image:'img/blank.jpg').'"> </div>
                                         <div class="info-wrap"> 
@@ -96,6 +97,7 @@
                                                 <!-- price-wrap.// -->
                                         </div> <!-- bottom-wrap.// -->
                                     </div> <!-- card // -->
+                                    </a>
                                 </div> <!-- col.// -->
                                 ';};
                                 ?>
