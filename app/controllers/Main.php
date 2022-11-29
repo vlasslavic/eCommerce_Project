@@ -61,6 +61,13 @@ class Main extends \app\core\Controller{
 		$this->view('Main/catalog', $data);
 	}
 
+	public function contact(){
+		//To find interesting publications, as a person or user, I can search for captions by search terms.
+
+		$this->view('Main/contact');
+	}
+
+
 	public function shops(){
 		//To find interesting publications, as a person or user, I can search for captions by search terms.
 		$profile = new \app\models\Profile();
