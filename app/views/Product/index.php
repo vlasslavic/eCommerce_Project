@@ -14,7 +14,7 @@
                             <span class="text-decoration-line-through">$<?php echo ''.(isset($data->sell_price)?$data->sell_price*1.15:'00.00').'';?></span>
                             <span>$<?php echo ''.(isset($data->sell_price)?$data->sell_price:'00.00').'';?></span>
                         </div>
-                        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?</p>
+                        <p class="lead"><?php echo isset($data->description)?$data->description:'Product Description' ?></p>
                         <div class="mb-1"><?php echo''.(isset($data->in_stock)?((($data->in_stock<10)?
                                                                                     ('Only '.$data->in_stock):
                                                                                     ($data->in_stock)).(($data->in_stock<10)?(' left'):(' available')))

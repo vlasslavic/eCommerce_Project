@@ -24,7 +24,7 @@
                                         style="width: 5em; height: 5em; object-fit: cover;" id="pic_preview" src="<?php echo ''.URLROOT.'public/'?><?php echo isset($data->picture)?'uploads/'.$data->picture:'img/account.jpg'; ?>">
                                 </label>
                                 <input type="file" accept="image/gif, image/jpeg, image/png" name="picture" id="picture" class="form-control-file form-control d-none"  />
-                                <input name="caption" hidden id="caption" value="<?php echo''.$data->picture?$data->picture:NULL.'' ?>">
+                                <input name="caption" hidden id="caption" value="<?php echo''.isset($data->picture)?$data->picture:NULL.'' ?>">
                             </div>
                         <!-- </form> -->
                     </div>

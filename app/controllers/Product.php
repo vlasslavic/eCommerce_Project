@@ -11,7 +11,7 @@ class Product extends \app\core\Controller{
         $product = new \app\models\Product();
 		$product=$product->get($product_id);
         $productRelated = new \app\models\Product();
-		$productRelated = $productRelated->searchRelated($product->product_name);
+		$productRelated = $productRelated->searchRelated($product->profile_id);
         $data = $product;
         $data->related=$productRelated;
 		    $this->view('Product/index',$data);

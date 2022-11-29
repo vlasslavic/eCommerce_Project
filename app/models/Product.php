@@ -61,6 +61,8 @@ class Product extends \app\core\Model{
 						'sell_price'=>$this->sell_price,
 						'cost_price'=>$this->cost_price,]);
 	}
+
+	
 	public function updateWithImage(){
 		$SQL = "UPDATE product SET product_name=:product_name, description=:description, image=:image, in_stock=:in_stock, sell_price=:sell_price, cost_price=:cost_price WHERE product_id=:product_id";
 		$STMT = self::$_connection->prepare($SQL);
@@ -81,7 +83,7 @@ class Product extends \app\core\Model{
 
 	public function searchRelated($searchTerm){
 		//get all newest first
-		$SQL = "SELECT * FROM product WHERE product_name LIKE :searchTerm ORDER BY in_stock DESC LIMIT 5";
+		$SQL = "SELECT * FROM product WHERE profile_id LIKE :searchTerm ORDER BY in_stock DESC LIMIT 5";
 		$STMT = self::$_connection->prepare($SQL);
 		$STMT->execute(['searchTerm'=>"%$searchTerm%"]);
 		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Product');

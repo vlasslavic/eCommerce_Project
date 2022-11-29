@@ -6,10 +6,13 @@ class Profile extends \app\core\Controller{
     
 public function myStore(){
 	$profile = new \app\models\Profile();
-	if(isset($_GET['profile_id'])){$profile_id = intval($_GET['profile_id']);}
-	
-	if(!isset($_SESSION["profile_id"]) And isset($profile_id)){
-		$data = $profile->getProfile($profile_id);
+	// if(isset($_GET['profile_id'])){
+	// 	$profile_id = intval($_GET['profile_id']);
+		
+	// }
+	// And ($_GET['profile_id']!=($_SESSION["profile_id"]))
+	if(isset($_GET['profile_id']) ){
+		$data = $profile->getProfile($_GET['profile_id']);
 		$this->view('/Profile/myStore',$data);
 
 	}else if(isset($_SESSION["profile_id"])){

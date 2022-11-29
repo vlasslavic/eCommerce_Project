@@ -16,7 +16,7 @@ class User extends \app\core\Controller{
 					//correct password provided
 					$_SESSION['email'] = $user->email;
 					$_SESSION['user_id'] = $user->user_id;
-					
+					$_SESSION['picture'] = $user->picture;
 					// $_SESSION['posts'] = $posts;
 					
 					header('location:'.URLROOT.'Main');

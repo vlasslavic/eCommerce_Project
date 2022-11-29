@@ -84,19 +84,35 @@
         
 
         <?php if(isCustomerLoggedIn()){ echo'
-            <li>
-              <i class="btn bi bi-cart-fill" style="font-size: 1.5rem;"></i>
-            </li> 
-        ';}?>
-        <?php if(isCustomerLoggedIn()){ echo'
+            <li class="nav-item dropdown ">
+            <a class=" nav-link dropdown-toggle text-decoration-none text-dark  fs-6 fw-bold" data-bs-toggle="dropdown"  role="button" aria-expanded="false">Garage<a/>
+            <ul class="dropdown-menu ">
+              <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Garage/addCar"><i class="bi bi-plus-circle-fill p-2"></i>Add Car</a></li>
+              <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Garage/myList"><i class="bi bi-pen-fill p-2"></i>Modify Garage</a></li>
+              
+            </ul>
+          </li>
+          <li class="nav-item dropdown ">
+            <a class=" nav-link dropdown-toggle text-decoration-none text-dark  fs-6 fw-bold" data-bs-toggle="dropdown"  role="button" aria-expanded="false">Appointments<a/>
+            <ul class="dropdown-menu ">
+              <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Appointment/myList"><i class="bi bi-calendar2-week-fill p-2"></i>My Appointments</a></li>
+              
+            </ul>
+          </li>
+            <li class="me-3">
+                <button class="btn btn-outline-dark " type="submit">
+                <i class="bi-cart-fill me-1"></i>
+                Cart
+                <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                </button>
+            </li>
             <li class="nav-item dropdown" name="Profile Pic">
-              <img alt="Image Placeholder" src="'.URLROOT.''.((isset($_SESSION['profile_pic']))?('public/uploads/'.$_SESSION['profile_pic']):'public/img/account.jpg').'" class="rounded-circle shadow-4 nav-link dropdown-toggle " data-bs-toggle="dropdown"  role="button" aria-expanded="false""
-                style="width: 5em; height: 5em; object-fit: cover;" alt="Avatar" name="Profile Pic" />
+            <img alt="Image Placeholder" src="'.URLROOT.''.((isset($_SESSION['picture']))?('public/uploads/'.$_SESSION['picture']):'public/img/account.jpg').'" class="rounded-circle px-2  shadow-4 nav-link dropdown-toggle " data-bs-toggle="dropdown"  role="button" aria-expanded="false"
+            style="width: 5em; height: 5em; object-fit: cover;" alt="Avatar" name="Profile Pic" />
               <ul class="dropdown-menu ">
-                <li><a class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-person-circle p-2"></i>Profile</a></li>
                 <li><a class="dropdown-item text-decoration-none text-dark" href="#"><i class="bi bi-gear-fill p-2"></i>Settings</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a name="Logout" href="Main/logout" class="dropdown-item text-decoration-none text-dark" ><i class="bi bi-door-open-fill p-2"></i>Logout</a></li>
+                <li><a name="Logout" href="'.URLROOT.'Main/logout" class="dropdown-item text-decoration-none text-dark" ><i class="bi bi-door-open-fill p-2"></i>Logout</a></li>
               </ul>
             </li> 
           ';}?>
