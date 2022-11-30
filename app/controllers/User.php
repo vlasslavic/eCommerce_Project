@@ -24,7 +24,7 @@ class User extends \app\core\Controller{
 					//incorret password provided
 					header('location:'.URLROOT.'User/index?error=Incorrect username/password combination!');
 				}
-			}else{
+			}else if(isset($user->seller_id)){
 				$user = new \app\models\User();
 				$user = $user->getSeller($_POST['email']);
 				$profile = new \app\models\Profile();
@@ -49,6 +49,8 @@ class User extends \app\core\Controller{
 						header('location:'.URLROOT.'User/index?error=Incorrect username/password combination!');
 					}
 				}
+			}else{
+				header('location:'.URLROOT.'User/index?error=Incorrect username/password combination!');
 			}
 
 			//verify the password match
