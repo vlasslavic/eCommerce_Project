@@ -93,7 +93,11 @@
                 <svg class="bi" width="1em" height="1em"><use xlink:href="#tools"></use></svg>
                 </div>
                 <div>
-                <h2 class="text-center"><i class="bi bi-check-circle-fill me-3"></i>12</h2>
+                <h2 class="text-center"><i class="bi bi-check-circle-fill me-3"></i>
+                <?php $garage= new \app\models\Garage();
+                            $garage = $garage->getAllId();
+                        echo''.sizeof($garage).'';?>
+                </h2>
                 <p>Registered Cars</p>
                 
                 </div>
