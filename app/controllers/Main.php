@@ -3,10 +3,10 @@ namespace app\controllers;
 
 class Main extends \app\core\Controller{
 	public function index(){
+		
 		if(isset($_POST['action'])){
 			
 			if(isLoggedIn()){
-				
 				if(isset($_POST['delete'])){
 						$publication = new \app\models\Post();
 						$publication->publication_id = $_POST['delete'];
@@ -45,9 +45,11 @@ class Main extends \app\core\Controller{
 
 	public function search(){
 		//To find interesting publications, as a person or user, I can search for captions by search terms.
-		$publication = new \app\models\Post();
-		$data = $publication->search($_GET['search_term']);
-		$this->view('Main/index', $data);
+		$products = new \app\models\Product();
+		$services = new \app\models\Service();
+		if($_GET['search_category']=="products"){
+		$data = $products->search($_GET['search_term']);
+		$this->view('Main/catalog', $data);}
 	}
 	
 

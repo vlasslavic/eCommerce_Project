@@ -16,9 +16,11 @@
     font-size: 16px;
   }
 
-  input:focus,textarea:focus {
+  input:focus,textarea:focus,select:focus {
   border-color: #ffc107 !important;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px hsla(45, 100%, 51%, 0.601);
+    outline-color: #ffc107 !important;
+  
   }
 
 
@@ -36,6 +38,7 @@
     padding-right: 31px;
     font-size: 16px;
   }
+  
 
   .autocomplete-items {
     position: absolute;
@@ -72,6 +75,18 @@
     display: none;
     align-items: center;
   }
+  section .clear-button {
+    color: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    
+    position: absolute;
+    left: calc(100% - 30px);
+    top: 0;
+  
+    height: 100%;
+    display: none;
+    align-items: center;
+  }
   
   .clear-button.visible {
     display: flex;
@@ -96,4 +111,45 @@
     bottom: 0;
     width: 100%;
     height: 2.5rem;  
+<<<<<<< Updated upstream
   }
+=======
+  } */
+
+
+  @media (min-width: 1025px) {
+    .h-custom {
+    height: 100vh !important;
+    }
+    }
+    
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+    }
+    
+    .card-registration .select-arrow {
+    top: 13px;
+    }
+    
+    .bg-grey {
+    background-color: #eae8e8;
+    }
+    
+    @media (min-width: 992px) {
+    .card-registration-2 .bg-grey {
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    }
+    }
+    
+    @media (max-width: 991px) {
+    .card-registration-2 .bg-grey {
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    }
+    }
+  
+>>>>>>> Stashed changes

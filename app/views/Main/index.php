@@ -101,6 +101,7 @@ foreach ($profiles as $profile) {
         $commentAll = $commentAll->getAll($publication->publication_id);
         $commentCount = sizeof( $commentAll);
 
+<<<<<<< Updated upstream
         $oneComment= new \app\models\Comment(); 
         $oneComment= $oneComment->getOneComment($publication->publication_id);
         if(!isset($oneComment->comment)){
@@ -380,6 +381,22 @@ foreach ($profiles as $profile) {
 
                                                                         <a class="btn" href="'.URLROOT.'Comment/edit/?comment_id='.$oneComment->comment_id.'">Edit</a>
                                                                       
+=======
+        <div class="row g-4 pt-2 pb-5 row-cols-1 row-cols-lg-3 ms-2">
+            <div class="col d-flex align-items-start">
+                <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
+                </div>
+                <div class="text-center">
+                <h2 class="text-center"><i class="bi bi-bar-chart-fill me-3"></i>
+                
+                <?php $paid= new \app\models\Cart();
+                
+                        $paid = $paid->getAllOrdersID();
+                        echo''.sizeof($paid).'';?>
+                </h2>
+                <p>Products Sold</p>
+>>>>>>> Stashed changes
                 
                                                                         </span>
                                                                         <span class="_aacl _aaco _aacu _aacx _aad7 _aade">&nbsp;</span>

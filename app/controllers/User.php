@@ -8,15 +8,26 @@ class User extends \app\core\Controller{
 		if(isset($_POST['action'])){
 			//select the user record as per the request
 			$user = new \app\models\User();
+			$seller = new \app\models\User();
+			$cart = new \app\models\Cart();
 			$user = $user->getUser($_POST['email']);
+			$seller = $seller->getSeller($_POST['email']);
 
 			//check user type
-			if(isset($user->user_id)){
+			if(isset($user->user_id) And (!isset($seller->seller_id))){
 				if(password_verify($_POST['password'], $user->password_hash)){
 					//correct password provided
 					$_SESSION['email'] = $user->email;
 					$_SESSION['user_id'] = $user->user_id;
+<<<<<<< Updated upstream
 					
+=======
+					$_SESSION['picture'] = $user->picture;
+					$cart=$cart->getCart(($user->user_id));
+					if(isset($cart->order_id)){
+						$_SESSION['order_id'] = $cart->order_id; 
+					}
+>>>>>>> Stashed changes
 					// $_SESSION['posts'] = $posts;
 					
 					header('location:'.URLROOT.'Main');
@@ -24,17 +35,21 @@ class User extends \app\core\Controller{
 					//incorret password provided
 					header('location:'.URLROOT.'User/index?error=Incorrect username/password combination!');
 				}
+<<<<<<< Updated upstream
 			}else{
 				$user = new \app\models\User();
 				$user = $user->getSeller($_POST['email']);
+=======
+			}else if(isset($seller->seller_id)  And (!isset($user->user_id))){
+>>>>>>> Stashed changes
 				$profile = new \app\models\Profile();
-				$profile = $profile->get($user->seller_id);
+				$profile = $profile->get($seller->seller_id);
 
-				if(isset($user->seller_id)){
-					if(password_verify($_POST['password'], $user->password_hash)){
+				if(isset($seller->seller_id)){
+					if(password_verify($_POST['password'], $seller->password_hash)){
 						//correct password provided
-						$_SESSION['email'] = $user->email;
-						$_SESSION['seller_id'] = $user->seller_id;
+						$_SESSION['email'] = $seller->email;
+						$_SESSION['seller_id'] = $seller->seller_id;
 						//Check if profile is created
 						if(isset($profile->profile_id)){
 							$_SESSION['profile_id'] = $profile->profile_id;

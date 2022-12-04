@@ -13,7 +13,10 @@ This folder contains the files and folders that are required every couple of wee
 
 ## Extra Small Features
 1. Address Fields Autocomplete ( using Geoapify Address Autocomplete API )
-
+2. Car Year/Make/Model Autocomplete ( using Car API )
+3. PayPal checkout system including checkout with Credit Cars ( using PayPal API )
+4. Contact Us form ( using Formspree API )
+5. Discount Coupon System
 ## Copyright and License
 
 Copyright 2022. Code released under the [MIT](https://github.com/vlasslavic/eCommerce_Project/blob/main/LICENSE) license.
