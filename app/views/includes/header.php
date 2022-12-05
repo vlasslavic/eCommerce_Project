@@ -16,6 +16,8 @@
         <link rel="icon" type="image/x-icon" href="<?php echo ''.URLROOT.''?>public/img/favicon.ico">
         <link rel="stylesheet" href="<?php echo ''.URLROOT.''?>public/css/styles.css">
         <script type="text/javascript" src="<?php echo ''.URLROOT.''?>public/javascript/script.js"></script>
+        <link href="<?php echo ''.URLROOT.''?>public/css/CalendarPicker.style.css" rel="stylesheet">
+        <script src="<?php echo ''.URLROOT.''?>public/javascript/CalendarPicker.js"></script>
         <title>myRide</title>    
   
 </head>
