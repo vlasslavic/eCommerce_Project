@@ -1,7 +1,0 @@
-{"email":"test@mail.com","message":"aefef"}
-{"email":"aeef@g.co","message":"aefaef"}
-{"email":"veaci@example.com","message":"This is a test Message written by Veaceslav Vlas"}
-{"email":"test@mail.comaef","message":"ae"}
-{"email":"teest@mail.com","message":"1"}
-{"email":"test@mail.com","message":"<script>alert('ok');</script>"}
-{"email":"test@mail.com","message":"<script>alert('ole')<\/script>"}
