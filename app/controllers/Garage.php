@@ -139,6 +139,9 @@ class Garage extends \app\core\Controller{
         $this->view('Garage/mylist');
     }
 
+    
+
+
     #[\app\filters\Login]
 	
 	public function delete($vehicle_id){

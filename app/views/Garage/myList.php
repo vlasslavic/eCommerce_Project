@@ -30,6 +30,7 @@
                     <td>'.$data->color.'</td>
                     <td>'.$data->vin.'</td>
                     <td class="mx-auto ">
+                    <span class="me-4"><a class="btn btn-secondary px-4"  href="'.URLROOT.'Appointments/history/'.$data->vehicle_id.'">History</a></span>
                         <span class="me-4"><a class="btn btn-warning px-4"  href="'.URLROOT.'Garage/modifyGarage/'.$data->vehicle_id.'">Edit</a></span>
                         <span class="" ><!-- Button trigger modal -->
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal'.$data->vehicle_id.'">

@@ -95,4 +95,19 @@ class Appointment extends \app\core\Model{
 		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Appointment');
 		return $STMT->fetchAll();	
 	}
+
+    public function getAllComplete($vehicle_id){
+        $SQL = "SELECT *
+                FROM appointment AS APP 
+                LEFT JOIN service AS ITM 
+                ON APP.service_id = ITM.service_id
+                WHERE APP.vehicle_id=:vehicle_id
+                AND status LIKE 'Completed'";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['vehicle_id'=>$vehicle_id]);
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Appointment');
+		return $STMT->fetchAll();	
+    }
+
+    
 }

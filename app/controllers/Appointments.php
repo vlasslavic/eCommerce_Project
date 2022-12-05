@@ -16,6 +16,15 @@ class Appointments extends \app\core\Controller{
         $this->view('Appointments/myAppointments',$data);
     }
 
+    #[\app\filters\Login]
+	
+    public function history($data){
+        $app = new \app\models\Appointment();
+		$data=$app->getAllComplete($data);
+        if(isset($data)){
+        $this->view('Appointments/index',$data);}
+    }
+
     public function schedule($data){
         $service = new \app\models\Service();
         $app = new \app\models\Appointment();
@@ -106,6 +115,9 @@ class Appointments extends \app\core\Controller{
         }
        
     }
+
+    
+
 
     #[\app\filters\Login]
 	
