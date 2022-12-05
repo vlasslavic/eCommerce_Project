@@ -12,8 +12,8 @@
           <li><a href="'.URLROOT.'Main/index" name="Home" class="nav-link text-decoration-none p-2 mx-2 '.(str_contains($escaped_url, "/index")?'bg-warning text-black active':'text-white').'">Home</a></li>
           <li><a href="'.URLROOT.'Main/catalog" class="nav-link text-decoration-none p-2 mx-2 '.((str_contains($escaped_url, "/catalog"))?'bg-warning text-black active':'text-white').'">Catalog</a></li>
           <li><a href="'.URLROOT.'Main/shops" class="nav-link text-decoration-none p-2 mx-2 '.((str_contains($escaped_url, "/shops"))?'bg-warning text-black active':'text-white').'">Shops</a></li>
-          <li><a href="'.URLROOT.'Main/contact" class="nav-link text-decoration-none p-2 mx-2 '.((str_contains($escaped_url, "/FAQs"))?'bg-warning text-black active':'text-white').'">Contact Us</a></li>
-          <li><a href="'.URLROOT.'About/index'.'" class="nav-link text-decoration-none p-2 mx-2 '.((str_contains($escaped_url, "/Main/about"))?'bg-warning text-black active':'text-white').'">About</a></li>
+          <li><a href="'.URLROOT.'Main/contact" class="nav-link text-decoration-none p-2 mx-2 '.((str_contains($escaped_url, "/contact"))?'bg-warning text-black active':'text-white').'">Contact Us</a></li>
+          <li><a href="'.URLROOT.'Main/about_us'.'" class="nav-link text-decoration-none p-2 mx-2 '.((str_contains($escaped_url, "/about_us"))?'bg-warning text-black active':'text-white').'">About Us</a></li>
           
           <li class="nav-item dropdown p-1 ">
               <a class=" nav-link dropdown-toggle text-decoration-none text-light  fs-6 fw-bold" data-bs-toggle="dropdown"  role="button" aria-expanded="false"><i class="bi bi-globe2"></i><a/>

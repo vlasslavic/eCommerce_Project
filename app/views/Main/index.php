@@ -57,8 +57,7 @@
                 <h2 class="text-center"><i class="bi bi-people-fill me-3"></i>
                     <?php $profile= new \app\models\Profile();
                             $profile = $profile->getAllId();
-                            
-                        echo''.sizeof($profile).'';?>
+                            echo''.sizeof($profile).'';?>
                 </h2>
                 <p>Registered Shops</p>
                 

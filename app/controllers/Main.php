@@ -69,6 +69,12 @@ class Main extends \app\core\Controller{
 		$this->view('Main/contact');
 	}
 
+	public function about_us(){
+		//To find interesting publications, as a person or user, I can search for captions by search terms.
+
+		$this->view('Main/about_us');
+	}
+
 
 	public function shops(){
 		//To find interesting publications, as a person or user, I can search for captions by search terms.
@@ -77,10 +83,6 @@ class Main extends \app\core\Controller{
 		$this->view('Main/shops', $data);
 	}
 	
-
-	public function about_us(){
-		$this->view('Main/about_us');
-	}
 
 	public function logout(){
 		session_destroy();
