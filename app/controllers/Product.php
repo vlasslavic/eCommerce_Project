@@ -4,7 +4,47 @@ class Product extends \app\core\Controller{
 
 	public function index($product_id){
         if(!isset($product_id)){
-            $this->view('Main/index');
+            header('location:'.URLROOT.'Main/index?error=Product not found.');
+        }else if(isset($_POST['action'])){
+                $cart = new \app\models\Cart();
+                $item = new \app\models\Cart();
+                $item->quantity=$_POST['inputQuantity'];
+                $product = new \app\models\Product();
+                $product = $product->get($_POST['product_id']);
+                $cart = $cart->getCart($_SESSION["user_id"]);
+                if(isset($cart->order_id)){ 
+                     if(isset($product->product_id)){
+                     $item->order_id=$cart->order_id;
+                     $item->product_id=$product->product_id;
+                     $item->product_name=($product->product_name);
+                     $item->profile_id=($product->profile_id);
+                     $item->sell_price=$product->sell_price;
+                     $item->cost_price=$product->cost_price;
+                     $item->insertProduct();}
+                     header('location:'.URLROOT.'Cart/index?message=Item Added.');
+                }else{
+     
+                 // Initiates a Cart, verifies with the DB and sets Session Variable.
+                 $cart = new \app\models\Cart();
+                 $cart->user_id = ($_SESSION["user_id"]);
+                 $cart->insertCart();
+                 $cart=$cart->getCart($_SESSION["user_id"]);
+                 $_SESSION["order_id"]=$cart->order_id;
+     
+     
+                 // Getting Product datas
+                     if(isset($product->product_id)){
+                     $item->order_id=$cart->order_id;
+                     $item->product_id=$product->product_id;
+                     $item->product_name=($product->product_name);
+                     $item->profile_id=($product->profile_id);
+                     $item->sell_price=$product->sell_price;
+                     $item->cost_price=$product->cost_price;
+                     $item->insertProduct();
+                     header('location:'.URLROOT.'Cart/index?message=Item Added.');
+                 }
+                }
+             
         }else{
         $product = new \app\models\Product();
 		$product=$product->get($product_id);
@@ -22,7 +62,7 @@ class Product extends \app\core\Controller{
 
         $publication_id = intval($_GET['publication_id']);
         if(!isset($publication_id)){
-            header('location:'.URLROOT.'Main/index?error=Publication not found.');
+            header('location:'.URLROOT.'Main/index?error=Product not found.');
 	
         }else{
             if(isset($_POST['action'])){
