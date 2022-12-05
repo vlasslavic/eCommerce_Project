@@ -2,16 +2,21 @@
 
 <!-- <input data-provide="datepicker">-->
 <div class="container card">
-  <?php if(isset($data->service_id)){
+  <?php if(isset($data->appointment_id)){
+    $service = new \app\models\Service();
+    $service=$service->get($data->service_id);
     $profile = new \app\models\Profile();
-    $profile = $profile->getProfile($data->profile_id);
+    $profile=$profile->getProfile($service->profile_id);
+    $car = new \app\models\Garage();
+    $car=$car->get($data->vehicle_id);
+
     echo'
     <form  method="POST" action="" role="">
 
     <div id="setCar" class="">
      <div class=" fs-1 my-5" > 
-      <a href="'.URLROOT.'Profile/myStore?profile_id='.$profile->profile_id.'" class="text-decoration-none pointer text-dark me-5"><i class="bi bi-arrow-left"></i></a>'.(isset($profile->business_name)?($profile->business_name):'').' - '.(isset($data->service_name)?($data->service_name):'').' - '.(isset($data->duration)?($data->duration):'').'h - $'.(isset($data->service_price)?($data->service_price):'').'
-      
+      <a href="'.URLROOT.'Profile/myStore?profile_id='.$profile->profile_id.'" class="text-decoration-none pointer text-dark me-5"><i class="bi bi-arrow-left"></i></a>'.(isset($profile->business_name)?($profile->business_name):'').' - '.(isset($service->service_name)?($service->service_name):'').' - '.(isset($service->duration)?($service->duration):'').'h - $'.(isset($service->service_price)?($service->service_price):'').'
+      <div class="text-muted fs-4 ms-5 ps-5" id="vehicleName1">'.$car->year.' '.$car->make.' '.$car->model.'</div>
       </div>
 
       <hr class="mb-5">
@@ -21,20 +26,27 @@
     
           <div class="d-flex flex-column">
    
-              <label for="vehicle" id="vehicleLb" class="form-label fs-4 mb-4"><strong>Select Vehicle:</strong></label>
+              <label for="vehicle" id="vehicleLb" class="form-label fs-4 mb-4"><strong>Change Vehicle:</strong></label>
                 <select class="form-select bg-light fs-4 text-center" name="vehicle_id"  id="vehicle_id"  style=" background:black;">
+                <option class="text-start" value="'.$car->vehicle_id.'">Current: '.$car->year.' '.$car->make.' '.$car->model.'</option>
                   ';};?>
                   <?php if(isset($data->service_id)){
+                    $service = new \app\models\Service();
+                    $service=$service->get($data->service_id);
+                    $profile = new \app\models\Profile();
+                    $profile=$profile->getProfile($service->profile_id);
+                    $car = new \app\models\Garage();
+                    $car=$car->get($data->vehicle_id);
                     $garage = new \app\models\Garage();
                     $garage = $garage->getAllCars($_SESSION["user_id"]);
-                    foreach ($garage as $car) { 
-                    echo' <option class="text-start" value="'.$car->vehicle_id.'">'.$car->year.' '.$car->make.' '.$car->model.'</option>';};  
+                    foreach ($garage as $mycar) { 
+                    echo' <option class="text-start" value="'.$mycar->vehicle_id.'">'.$mycar->year.' '.$mycar->make.' '.$mycar->model.'</option>';};  
                  
                     echo'
                 </select>
                 <input  hidden id="user_id" name="user_id" value="'.(isset($_SESSION['user_id'])?($_SESSION['user_id']):'').'">
-                <label for="odometer" id="odometerLb" class="form-label fs-4 my-4"><strong>Odometer:</strong></label>
-                <input class="rounded bg-light fs-4 text-center"  id="odometer" type="number" name="odometer" placeholder="km" >
+                <label for="odometer"  id="odometerLb" class="form-label fs-4 my-4"><strong>Odometer:</strong></label>
+                <input class="rounded bg-light fs-4 text-center" value="'.(isset($data->odometer)?($data->odometer):'').'" id="odometer" type="number" name="odometer" placeholder="km" >
 
                 <a id="nextStep" class="btn btn-warning btn-lg mt-5">Continue <i class="bi bi-arrow-right"></i></a>
         
@@ -44,8 +56,8 @@
 
     <div id="setTime" class="d-none">
       <div class=" fs-1 my-5" > 
-        <a id="goBack" class=" text-decoration-none pointer text-dark me-5"><i class="bi bi-arrow-left"></i></a>'.(isset($profile->business_name)?($profile->business_name):'').' - '.(isset($data->service_name)?($data->service_name):'').' - '.(isset($data->duration)?($data->duration):'').'h - $'.(isset($data->service_price)?($data->service_price):'').'
-        <div class="text-muted fs-4 ms-5 ps-5" id="vehicleName"></div>
+        <a id="goBack" class=" text-decoration-none pointer text-dark me-5"><i class="bi bi-arrow-left"></i></a>'.(isset($profile->business_name)?($profile->business_name):'').' - '.(isset($service->service_name)?($service->service_name):'').' - '.(isset($service->duration)?($service->duration):'').'h - $'.(isset($service->service_price)?($service->service_price):'').'
+        <div class="text-muted fs-4 ms-5 ps-5" id="vehicleName">'.$car->year.' '.$car->make.' '.$car->model.'</div>
         </div>
 
         <hr class="mb-5">
@@ -69,8 +81,8 @@
                   <input  hidden id="service_id" name="service_id" value="'.(isset($data->service_id)?($data->service_id):'').'">
                   <input  hidden id="current-date" name="current-date" >
                   
-                  <input  class="rounded" id="finalDateTime" name="finalDateTime" >
-                  <button name="action" type="submit" class="btn btn-warning btn-lg"><i class="bi bi-calendar-check"></i> Schedule</button>
+                  <input disabled class="rounded" id="finalDateTime" name="finalDateTime" value="'.(isset($data->date_time)?($data->date_time):'').'" >
+                  <button name="action" type="submit" class="btn btn-warning btn-lg"><i class="bi bi-calendar-check"></i> Save Updates</button>
           
           </div>
         </div>

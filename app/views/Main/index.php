@@ -89,7 +89,13 @@
                 <svg class="bi" width="1em" height="1em"><use xlink:href="#cpu-fill"></use></svg>
                 </div>
                 <div>
-                <h2 class="text-center"><i class="bi bi-check-circle-fill me-3"></i>3</h2>
+                <h2 class="text-center"><i class="bi bi-check-circle-fill me-3"></i>
+                <?php $app= new \app\models\Appointment();
+                
+                        $app = $app->getAllAppID();
+                        echo''.sizeof($app).'';?>
+                
+            </h2>
                 <p class="text-center mb-0">Appointments</plass=>
                 <p class="text-center mt-0">Done</p>
                 </div>

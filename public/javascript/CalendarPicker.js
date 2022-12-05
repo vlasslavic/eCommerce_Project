@@ -56,7 +56,7 @@ function CalendarPicker(element, options) {
     this.calendarDayElementType = 'time';
 
     var beginningOfYearOnMonday = new Date('2018-01-01');
-    var locale = options.locale || 'en-US';
+    var locale = options.locale || 'en-CA';
     this.listOfAllDaysAsText = [...Array(7).keys()].map(this._toTranslatedWeekday(beginningOfYearOnMonday, locale, options.showShortWeekdays))
     this.listOfAllMonthsAsText = [...Array(12).keys()].map(this._toTranslatedMonth(beginningOfYearOnMonday, locale))
 

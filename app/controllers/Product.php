@@ -2,7 +2,6 @@
 
 class Product extends \app\core\Controller{
 
-
 	public function index($product_id){
         if(!isset($product_id)){
             $this->view('Main/index');

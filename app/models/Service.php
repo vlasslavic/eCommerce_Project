@@ -1,6 +1,5 @@
 <?php
 namespace app\models;
-
 class Service extends \app\core\Model{
 	
 	public function get($service_id){

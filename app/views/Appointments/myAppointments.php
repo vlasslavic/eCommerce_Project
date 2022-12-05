@@ -41,7 +41,15 @@
                     <td>'.$items->date_time.'</td>
                     <td><textarea disabled>'.$profile->address.'</textarea></td>
                     <td class="mx-auto ">
-                        <span class="me-4"><a class="btn btn-warning px-4"  href="'.URLROOT.'Appointments/modifyAppointment/'.$items->appointment_id.'">Modify</a></span>
+
+                    <a class=" btn btn-warning dropdown-toggle text-decoration-none text-dark  fs-6 fw-bold" data-bs-toggle="dropdown"  role="button" aria-expanded="false">Appointment<a/>
+                    <ul class="dropdown-menu ">
+                      <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Appointments/changeStatusConfirm/'.$items->appointment_id.'"><i class="bi bi-plus-circle-fill p-2"></i>Accept</a></li>
+                      <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Appointments/changeStatusDone/'.$items->appointment_id.'"><i class="bi bi-pen-fill p-2"></i>Mark Complete</a></li>
+                      <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Appointments/delete/'.$items->appointment_id.'"><i class="bi bi-trash2-fill p-2"></i>Delete</a></li>
+                      
+                    </ul>
+
                         <span class="" ><!-- Button trigger modal -->
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal'.$items->appointment_id.'">
                           Cancel

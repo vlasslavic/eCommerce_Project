@@ -74,7 +74,7 @@
               <ul class="dropdown-menu ">
                 <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Service/addService"><i class="bi bi-plus-circle-fill p-2"></i>Add Service</a></li>
                 <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Service/list"><i class="bi bi-pen-fill p-2"></i>Modify Service</a></li>
-                <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Appointments/index"><i class="bi bi-calendar2-week-fill p-2"></i>My Appointments</a></li>
+                <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Appointments/myAppointments"><i class="bi bi-calendar2-week-fill p-2"></i>My Appointments</a></li>
                 
               </ul>
             </li>

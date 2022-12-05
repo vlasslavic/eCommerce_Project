@@ -1,6 +1,4 @@
-<?php
-namespace app\filters;
-
+<?php namespace app\filters;
 #[\Attribute]
 class User extends \app\core\AccessFilter{
 

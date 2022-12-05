@@ -146,7 +146,7 @@
                                             <div class="price-wrap lh-sm text-start"> <strong class="price"> $'.(isset($datas->service_price)?$datas->service_price:'00.00').' </strong> <br>
                                                 <small class="text-muted">'.$hour.'h '.$minutes.'min </small> </div>
                                         
-                                                <a href="#" class=" btn btn-warning float-end ms-auto btn-md">Schedule</a>
+                                                <a href="'.URLROOT.'Appointments/schedule/'.$datas->service_id.'" class=" btn btn-warning float-end ms-auto btn-md">Schedule</a>
                                                 <!-- price-wrap.// -->
                                         </div> <!-- bottom-wrap.// -->
                                     </div> <!-- card // -->
