@@ -54,7 +54,7 @@
                         <!-- <input aria-required="false" step="15" id="duration" placeholder="Duration" type="number"
                             class="w-75 rounded-2" name="duration"> -->
                             <input class="rounded-2 w-25" type="number" min="0" max="24" step="1" autocomplete="off" value="0" name="hours"   id="hours"  > hours,
-	                        <input class="rounded-2 w-25" type="number" min="0" max="60" step="15" autocomplete="off" value="0" name="minutes" id="minutes"> minutes
+	                        <input class="rounded-2 w-25" type="number" min="0" max="30" step="30" autocomplete="off" value="0" name="minutes" id="minutes"> minutes
                     </div>
                 </div>
                 

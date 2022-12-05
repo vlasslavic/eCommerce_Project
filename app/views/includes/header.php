@@ -20,9 +20,19 @@
   
 </head>
 <body class="bg-light user-select-none">
+    <!-- Display Announcements -->
+<?php
+    $coupon = new \app\models\Cart();
+    $coupon = $coupon->getCoupon("WELCOME22");
+    if(isset($coupon->description)){ 
+           echo' <div class="alert alert-warning headline text-center m-0" role="alert">'.($coupon->description).'</div>';
+     }
+?>
+
+<!-- Display Navigation -->
 <?php require APPROOT . '/views/includes/navigation.php'?>
 
-<!-- Show Messages and Errors -->
+<!-- Display Messages & Errors -->
 <?php
 	if(isset($_GET['error'])){ ?>
 <div class="alert alert-danger headline text-center" role="alert">
@@ -36,7 +46,7 @@ if(isset($_GET['info'])){ ?>
 </div>
 <?php	}
 
-	if(isset($_GET['message'])){ ?>
+if(isset($_GET['message'])){ ?>
 <div class="alert alert-success headline text-center" role="alert">
     <?= $_GET['message'] ?>
 </div>
@@ -46,10 +56,4 @@ if(isset($_GET['info'])){ ?>
     {echo '<div class="alert alert-warning headline text-center " role="alert">
             Your profile is disabled! Users won\'t be able to see your awesome store.
           </div>';}?>
-
-
 <main>
-
-
-
-

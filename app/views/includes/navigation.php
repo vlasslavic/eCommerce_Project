@@ -40,8 +40,8 @@
         
       </div>
       <div class="d-flex flex-wrap align-items-center bg-light text-dark justify-content-between justify-content-md-between py-1 px-5 border-bottom" style="bg-color:#a6a6a6;">
-        <form class="ms-3 input-group w-50 justify-content-start items-center d-flex col-12 col-lg-auto my-1" action="Main/search" method="get"> 
-                
+        <form class="ms-3 input-group w-50 justify-content-start items-center d-flex col-12 col-lg-auto my-1" action="<?php echo''.URLROOT.'';?>Catalog/search" method="get"> 
+                 <input hidden class="form-control btn-outline-warning" type="search" name="search_category" value="products">
                 <input class="form-control btn-outline-warning" type="search" name="search_term" placeholder="Enter search term"  aria-label="Search" style="max-width:20em;">
                 <button class="input-group-text" id="basic-addon1" type="submit" value="Search">
                     <i class="bi bi-search" ></i>
@@ -59,7 +59,7 @@
               <a class="nav-link text-decoration-none text-dark shadow-sm fs-6 fw-bold" aria-current="page" href="'.URLROOT.'Profile/myStore">My Store</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-decoration-none text-dark fs-6 fw-bold hover:" aria-current="page" href="#">Sales</a>
+              <a class="nav-link text-decoration-none text-dark fs-6 fw-bold hover:" aria-current="page" href="'.URLROOT.'Orders/list">Sales</a>
             </li>
             <li class="nav-item dropdown ">
               <a class=" nav-link dropdown-toggle text-decoration-none text-dark  fs-6 fw-bold" data-bs-toggle="dropdown"  role="button" aria-expanded="false">Products<a/>
@@ -74,7 +74,7 @@
               <ul class="dropdown-menu ">
                 <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Service/addService"><i class="bi bi-plus-circle-fill p-2"></i>Add Service</a></li>
                 <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Service/list"><i class="bi bi-pen-fill p-2"></i>Modify Service</a></li>
-                <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Service/list"><i class="bi bi-calendar2-week-fill p-2"></i>My Appointments</a></li>
+                <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Appointments/index"><i class="bi bi-calendar2-week-fill p-2"></i>My Appointments</a></li>
                 
               </ul>
             </li>
@@ -83,7 +83,23 @@
         ';}?>
         
 
-        <?php if(isCustomerLoggedIn()){ echo'
+        <?php if(isCustomerLoggedIn()){ 
+            $count=0;
+            $cart = new \app\models\Cart();
+            $cart=$cart->getCart($_SESSION["user_id"]);
+            if(isset($cart->order_id)){
+              $cart=$cart->getAllItems($cart->order_id);
+              $count = sizeof($cart);
+                foreach (($cart) as $item) {
+                if(($item->quantity)>1){
+                $count+=(($item->quantity)-1);
+                } 
+              }
+            };
+          echo'
+            <li class="nav-item">
+              <a class="nav-link text-decoration-none text-dark fs-6 fw-bold hover:" aria-current="page" href="'.URLROOT.'Orders/myList">Orders</a>
+            </li>
             <li class="nav-item dropdown ">
             <a class=" nav-link dropdown-toggle text-decoration-none text-dark  fs-6 fw-bold" data-bs-toggle="dropdown"  role="button" aria-expanded="false">Garage<a/>
             <ul class="dropdown-menu ">
@@ -95,16 +111,19 @@
           <li class="nav-item dropdown ">
             <a class=" nav-link dropdown-toggle text-decoration-none text-dark  fs-6 fw-bold" data-bs-toggle="dropdown"  role="button" aria-expanded="false">Appointments<a/>
             <ul class="dropdown-menu ">
-              <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Appointment/myList"><i class="bi bi-calendar2-week-fill p-2"></i>My Appointments</a></li>
+              <li><a class="dropdown-item text-decoration-none text-dark" href="'.URLROOT.'Appointments/index"><i class="bi bi-calendar2-week-fill p-2"></i>My Appointments</a></li>
               
             </ul>
           </li>
             <li class="me-3">
-                <button class="btn btn-outline-dark " type="submit">
+                <a class="btn btn-outline-dark " href="'.URLROOT.'Cart/index" type="submit">
                 <i class="bi-cart-fill me-1"></i>
                 Cart
-                <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                </button>
+                <span class="badge bg-dark text-white ms-1 rounded-pill">
+                '.((isset($count))?($count):('0')).'
+
+                </span>
+                </a>
             </li>
             <li class="nav-item dropdown" name="Profile Pic">
             <img alt="Image Placeholder" src="'.URLROOT.''.((isset($_SESSION['picture']))?('public/uploads/'.$_SESSION['picture']):'public/img/account.jpg').'" class="rounded-circle px-2  shadow-4 nav-link dropdown-toggle " data-bs-toggle="dropdown"  role="button" aria-expanded="false"

@@ -90,6 +90,15 @@ class Product extends \app\core\Model{
 		return $STMT->fetchAll();
 	}
 
+	public function search($searchTerm){
+		//get all newest first
+		$SQL = "SELECT * FROM product WHERE product_name LIKE :searchTerm";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['searchTerm'=>"%$searchTerm%"]);
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Product');
+		return $STMT->fetchAll();
+	}
+
 
 	
 }

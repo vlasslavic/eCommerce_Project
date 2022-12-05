@@ -73,7 +73,13 @@
                 <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
                 </div>
                 <div class="text-center">
-                <h2 class="text-center"><i class="bi bi-bar-chart-fill me-3"></i>12</h2>
+                <h2 class="text-center"><i class="bi bi-bar-chart-fill me-3"></i>
+                
+                <?php $paid= new \app\models\Cart();
+                
+                        $paid = $paid->getAllOrdersID();
+                        echo''.sizeof($paid).'';?>
+                </h2>
                 <p>Products Sold</p>
                 
                 </div>

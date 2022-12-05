@@ -59,7 +59,7 @@
                                 $minutes = $dt->format('i');
                             echo'
                             <input class="rounded-2 w-25" type="number" min="0" max="24" step="1" autocomplete="off" value="'.$hour.'" name="hours"   id="hours"  > hours,
-	                        <input class="rounded-2 w-25" type="number" min="0" max="60" step="15" autocomplete="off" value="'.$minutes.'"" name="minutes" id="minutes"> minutes
+	                        <input class="rounded-2 w-25" type="number" min="0" max="30" step="30" autocomplete="off" value="'.$minutes.'"" name="minutes" id="minutes"> minutes
                             ';?>
                     </div>
                 </div>

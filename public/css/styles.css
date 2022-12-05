@@ -1,127 +1,176 @@
 .form-control:focus {
-    border-color: #ffc107 !important;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px hsla(45, 100%, 51%, 0.601);
-  }
-
-  a.register>div.card:hover{
-    transition: transform .3s ease-out;
-    transform: translate(0, -10px);
-  }
-
-  div.card:hover{
-    transition: transform .3s ease-out;
-    transform: translate(0, 0px);
-  }
-
-  input,textarea{
-    outline: none;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    padding-right: 31px;
-    font-size: 16px;
-  }
-
-  input:focus,textarea:focus {
   border-color: #ffc107 !important;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px hsla(45, 100%, 51%, 0.601);
-  }
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px hsla(45, 100%, 51%, 0.601);
+}
+
+a.register>div.card:hover{
+  transition: transform .3s ease-out;
+  transform: translate(0, -10px);
+}
+
+div.card:hover{
+  transition: transform .3s ease-out;
+  transform: translate(0, 0px);
+}
+
+input,textarea{
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  padding-right: 31px;
+  font-size: 16px;
+}
+
+input:focus,textarea:focus,select:focus {
+border-color: #ffc107 !important;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px hsla(45, 100%, 51%, 0.601);
+  outline-color: #ffc107 !important;
+
+}
 
 
-  .autocomplete-container {
-    /*the container must be positioned relative:*/
-    position: relative;
-  }
+.autocomplete-container {
+  /*the container must be positioned relative:*/
+  position: relative;
+}
+
+.autocomplete-container input {
+  width: 75%;
+  outline: none;
   
-  .autocomplete-container input {
-    width: 75%;
-    outline: none;
-    
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    padding-right: 31px;
-    font-size: 16px;
-  }
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  padding-right: 31px;
+  font-size: 16px;
+}
 
-  .autocomplete-items {
-    position: absolute;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.1);
-    border-top: none;
-    background-color: #fff;
-    width: 75%;
-    z-index: 99;
-    top: calc(100% + 2px);
-    left: 0;
-    right: 0;
-  }
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.1);
+  border-top: none;
+  background-color: #fff;
+  width: 75%;
+  z-index: 99;
+  top: calc(100% + 2px);
+  left: 0;
+  right: 0;
+}
+
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.clear-button {
+  color: rgba(0, 0, 0, 0.4);
+  cursor: pointer;
   
+  position: absolute;
+  left: calc(75% - 30px);
+  top: 0;
 
-  .autocomplete-items div {
-    padding: 10px;
-    cursor: pointer;
-  }
+  height: 100%;
+  display: none;
+  align-items: center;
+}
+section .clear-button {
+  color: rgba(0, 0, 0, 0.4);
+  cursor: pointer;
   
-  .autocomplete-items div:hover {
-    /*when hovering an item:*/
-    background-color: rgba(0, 0, 0, 0.1);
-  }
+  position: absolute;
+  left: calc(100% - 30px);
+  top: 0;
 
-  .clear-button {
-    color: rgba(0, 0, 0, 0.4);
-    cursor: pointer;
-    
-    position: absolute;
-    left: calc(75% - 30px);
-    top: 0;
-  
-    height: 100%;
-    display: none;
-    align-items: center;
-  }
-  
-  .clear-button.visible {
-    display: flex;
-  }
-  
-  .clear-button:hover {
-    color: rgba(0, 0, 0, 0.6);
-  }
+  height: 100%;
+  display: none;
+  align-items: center;
+}
 
-  .autocomplete-items .autocomplete-active {
-    /*when navigating through the items using the arrow keys:*/
-    background-color: rgba(0, 0, 0, 0.1);
-  }
+.clear-button.visible {
+  display: flex;
+}
+
+.clear-button:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.autocomplete-items .autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: rgba(0, 0, 0, 0.1);
+}
 
 
-  .dropdown-item.active, .dropdown-item:active {
-    background-color:#ffc107;
-  }
+.dropdown-item.active, .dropdown-item:active {
+  background-color:#ffc107;
+}
 
-  .b-example-divider {
-    height: 30px;
-    background-color: rgba(0, 0, 0, .1);
-    border: solid rgba(0, 0, 0, .15);
-    border-width: 1px 0;
-    box-shadow: inset 0 0.5em 1.5em rgb(0 0 0 / 10%), inset 0 0.125em 0.5em rgb(0 0 0 / 15%);
+.b-example-divider {
+  height: 30px;
+  background-color: rgba(0, 0, 0, .1);
+  border: solid rgba(0, 0, 0, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 0.5em 1.5em rgb(0 0 0 / 10%), inset 0 0.125em 0.5em rgb(0 0 0 / 15%);
 }
 
 .noContent {
-  pointer-events: none;
-  display: none!important;
+pointer-events: none;
+display: none!important;
 }
 
 .producto{
-  
-  display: none;
-  animation: blur .8s ease-out ;
-  
+
+display: none;
+animation: blur .8s ease-out ;
+
 }
 
-  /* footer{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem;  
-  } */
+/* footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;  
+} */
 
+
+@media (min-width: 1025px) {
+  .h-custom {
+  height: 100vh !important;
+  }
+  }
   
+  .card-registration .select-input.form-control[readonly]:not([disabled]) {
+  font-size: 1rem;
+  line-height: 2.15;
+  padding-left: .75em;
+  padding-right: .75em;
+  }
+  
+  .card-registration .select-arrow {
+  top: 13px;
+  }
+  
+  .bg-grey {
+  background-color: #eae8e8;
+  }
+  
+  @media (min-width: 992px) {
+  .card-registration-2 .bg-grey {
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  }
+  }
+  
+  @media (max-width: 991px) {
+  .card-registration-2 .bg-grey {
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  }
+  }

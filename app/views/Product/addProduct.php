@@ -111,7 +111,7 @@
                     </div>
                     <div class="col-8 ms-5 justify-content-center align-items-center g-2">
                         <div class="w-75 d-flex  justify-content-center">
-                            <button class=" btn btn-warning me-3 ps-4 pe-4 shadow" name="action" value="SaveProfile"type="submit">Add Product</button>
+                            <button class=" btn btn-warning me-3 ps-4 pe-4 shadow" name="action" value="SaveProfile" type="submit">Add Product</button>
                         <div>
                     </div>
                 </div>

@@ -28,16 +28,16 @@
                     <td class="mx-auto ">
                         <span class="me-4"><a class="btn btn-warning px-4"  href="'.URLROOT.'Service/modifyService/'.$data->service_id.'">Edit</a></span>
                         <span class="" ><!-- Button trigger modal -->
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal'.$data->service_id.'">
                           Delete
                         </button>
                         
                         <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="exampleModal'.$data->service_id.'" tabindex="-1" aria-labelledby="exampleModalLabel'.$data->service_id.'" aria-hidden="true">
                           <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Service #'.$data->service_id.'</h1>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel'.$data->service_id.'">Delete Service #'.$data->service_id.'</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">

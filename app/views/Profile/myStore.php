@@ -95,7 +95,7 @@
                                                                                     ($datae->in_stock))
                                                                                 :'0').' left </small> </div>
                                         
-                                                <a href="#" class=" btn btn-warning float-end ms-auto btn-sm"> Add to cart</a>
+                                                <a href="'.URLROOT.'Cart/addToCart/'.$datae->product_id.'" class=" btn btn-warning float-end ms-auto btn-sm"> Add to cart</a>
                                                 <!-- price-wrap.// -->
                                         </div> <!-- bottom-wrap.// -->
                                     </div> <!-- card // -->
