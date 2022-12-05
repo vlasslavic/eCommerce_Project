@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-12 my-auto col-lg-6 image-wrapper">
-                <img class="w-100 rounded shadow-lg" src="<?php echo''.URLROOT.''?>public/img/image1.jpg" alt="Mobirise">
+                <img class="w-50 rounded shadow-lg" src="<?php echo''.URLROOT.''?>public/img/image1.jpg"  alt="Mobirise">
             </div>
         </div>
     </div>
