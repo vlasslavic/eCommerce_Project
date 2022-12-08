@@ -18,7 +18,7 @@
           <tbody>
           <?php 
           $garage = new \app\models\Garage();
-          $garage = $garage->getAllCars($_SESSION["user_id"]);
+          $garage = $garage->getAllGarage($_SESSION["user_id"]);
           
           foreach ($garage as $data) { 
                 echo'
