@@ -67,7 +67,7 @@ class Appointment extends \app\core\Model{
     
     
     public function getAll($user_id){
-		$SQL = "SELECT * FROM appointment WHERE user_id=:user_id AND status NOT LIKE 'Canceled' ORDER BY appointment_id DESC";
+		$SQL = "SELECT * FROM appointment WHERE user_id=:user_id ORDER BY appointment_id DESC";
 		$STMT = self::$_connection->prepare($SQL);
 		$STMT->execute(['user_id'=>$user_id]);
 		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Appointment');
