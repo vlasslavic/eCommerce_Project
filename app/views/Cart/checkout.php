@@ -97,6 +97,7 @@
                 Please provide a valid state.
               </div>
             </div>
+            <input hidden id="paypall_json" name="paypall_json"></input>
             <input hidden id="order_id" name="order_id" value="<?php echo''.((isset($data->order_id)?($data->order_id):'')).''?>">
               <input hidden id="total_price" name="total_price">
             <div class="col-md-3">
@@ -251,7 +252,7 @@
             const element = document.getElementById('paypal-button-container');
             element.innerHTML = '';
             element.innerHTML = '<h3>Thank you for your payment!</h3>';
-            
+            $('#paypall_json').val(JSON.stringify(orderData, null, 2));
             $('#total_price').val($("#totalPrice").val());
             // const order_id =  document.getElementById('order_id').value;
             $( "#submitShippingInfo").click();
@@ -269,6 +270,7 @@
     initPayPalButton();
   </script>
 
+<!-- Changes States/Provinces on Country Change -->
 <script>
 $( "#country" ).change(function checkSelect() {
     var desiredOption = $("#country").val();
@@ -346,6 +348,8 @@ $( "#country" ).change(function checkSelect() {
     }
   })
 </script>
+
+<!-- Responsable for hiding chekcout button if Zip not filled -->
 <script>
     $( "#zip" ).change(function openCheckout() {
       $("#filler").addClass("d-none");

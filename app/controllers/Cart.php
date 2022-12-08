@@ -57,6 +57,7 @@ class Cart extends \app\core\Controller{
                                             ."\r\n".$_POST['address2']."\r\n".$_POST['province']." ".$_POST['zip']." ".$_POST['country']
                                             ."\r\n".$_POST['email']."\r\n".$_POST['phone']);
                     $order->status="Paid";
+                    $order->paypal_confirmation=$_POST['paypall_json'];
                     $order->checkout();
                     $order->insertCart();
                     $_SESSION['order_id']=$order->getCart($_SESSION['user_id']);

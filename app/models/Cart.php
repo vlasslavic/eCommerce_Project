@@ -104,12 +104,13 @@ class Cart extends \app\core\Model{
 	}
 
 	public function checkout(){
-		$SQL = "UPDATE orders SET order_date=:order_date, total_price=:total_price, status=:status, shipping_info=:shipping_info WHERE order_id=:order_id";
+		$SQL = "UPDATE orders SET order_date=:order_date, total_price=:total_price, status=:status, shipping_info=:shipping_info, paypal_confirmation=:paypal_confirmation WHERE order_id=:order_id";
 		$STMT = self::$_connection->prepare($SQL);
 		$STMT->execute(['order_date'=>$this->order_date,
 						'total_price'=>$this->total_price,
 						'status'=>$this->status,
 						'shipping_info'=>$this->shipping_info,
+						'paypal_confirmation'=>$this->paypal_confirmation,
 						'order_id'=>$this->order_id,]);
 	}
 
